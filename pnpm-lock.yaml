@@ -78,6 +78,9 @@ importers:
       '@acme/db':
         specifier: workspace:^0.1.0
         version: link:../../packages/db
+      '@acme/extensions':
+        specifier: workspace:^0.1.0
+        version: link:../../packages/extensions
       '@t3-oss/env-nextjs':
         specifier: ^0.7.1
         version: 0.7.1(typescript@5.2.2)(zod@3.22.2)
