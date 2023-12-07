@@ -1,7 +1,6 @@
 ARG NODE_VERSION=20
-ARG ALPINE_VERSION=3.17
 
-FROM --platform=linux/arm64 node:${NODE_VERSION}-alpine AS base
+FROM node:${NODE_VERSION}-alpine AS base
 # LABEL fly_launch_runtime="Next.js"
 ENV NEXT_TELEMETRY_DISABLED=1
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
