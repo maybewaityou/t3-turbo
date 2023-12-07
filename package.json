@@ -38,7 +38,7 @@
   },
   "prettier": "@acme/prettier-config",
   "lint-staged": {
-    "**/*.{tsx,ts,.jsx,js,.mjs,scss,less,md,json}": [
+    "**/*.{tsx,ts,jsx,js,mjs,scss,less,md,json}": [
       "npm run format:fix"
     ]
   }
