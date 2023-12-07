@@ -5,16 +5,29 @@ export async function AuthShowcase() {
 
   if (!session) {
     return (
+      <>
       <form
         action={async () => {
           "use server";
-          await signIn("discord");
+          await signIn("github");
         }}
       >
         <button className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20">
-          Sign in with Discord
+          Sign in with Github
         </button>
       </form>
+
+      <form
+        action={async () => {
+          "use server";
+          await signIn("google");
+        }}
+      >
+        <button className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20">
+          Sign in with Google
+        </button>
+      </form>
+      </>
     );
   }
 
