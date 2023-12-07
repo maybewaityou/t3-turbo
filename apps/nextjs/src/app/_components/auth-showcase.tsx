@@ -5,29 +5,23 @@ export async function AuthShowcase() {
 
   if (!session) {
     return (
-      <>
-      <form
-        action={async () => {
-          "use server";
-          await signIn("github");
-        }}
-      >
-        <button className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20">
-          Sign in with Github
-        </button>
-      </form>
-
-      <form
-        action={async () => {
-          "use server";
-          await signIn("google");
-        }}
-      >
-        <button className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20">
-          Sign in with Google
-        </button>
-      </form>
-      </>
+      <span className="flex flex-row">
+      {
+        ['github', 'google'].map((item: string) => (
+          <form
+            key={item}
+            action={async () => {
+              "use server";
+              await signIn(item);
+            }}
+          >
+            <button className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20">
+              Sign in with {capitalize(item)}
+            </button>
+          </form>
+        ))
+      }
+      </span>
     );
   }
 
@@ -49,4 +43,8 @@ export async function AuthShowcase() {
       </form>
     </div>
   );
+}
+
+function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
