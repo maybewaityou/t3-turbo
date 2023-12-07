@@ -22,8 +22,6 @@ declare module "next-auth" {
 }
 
 console.log("env", env);
-console.log("env json", JSON.stringify(env));
-console.log("process json", JSON.stringify(process.env));
 
 export const {
   handlers: { GET, POST },
