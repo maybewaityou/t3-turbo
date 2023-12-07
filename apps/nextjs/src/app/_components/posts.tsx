@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import type { RouterOutputs } from "~/utils/api";
-import { api } from "~/utils/api";
+import type { RouterOutputs } from "~/utils/client";
+import { api } from "~/utils/client";
 
 export function CreatePostForm() {
   const context = api.useUtils();
