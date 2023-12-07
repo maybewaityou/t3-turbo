@@ -21,8 +21,9 @@ declare module "next-auth" {
   }
 }
 
-console.log("GITHUB_CLIENT_ID", env.GITHUB_CLIENT_ID);
-console.log("process.GITHUB_CLIENT_ID", process.env.GITHUB_CLIENT_ID);
+console.log("env", env);
+console.log("env json", JSON.stringify(env));
+console.log("process json", JSON.stringify(process.env));
 
 export const {
   handlers: { GET, POST },
@@ -33,12 +34,12 @@ export const {
   adapter: PrismaAdapter(db),
   providers: [
     GithubProvider({
-      clientId: env.GITHUB_CLIENT_ID,
-      clientSecret: env.GITHUB_CLIENT_SECRET,
+      clientId: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
     GoogleProvider({
-      clientId: env.GOOGLE_CLIENT_ID,
-      clientSecret: env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     /**
      * ...add more providers here.
