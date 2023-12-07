@@ -10,4 +10,4 @@ services:
     env_file:
       - .env
     ports:
-      - 26382:3000
+      - 13081:3000
