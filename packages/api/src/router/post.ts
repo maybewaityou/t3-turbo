@@ -15,14 +15,9 @@ export const postRouter = createTRPCRouter({
   }),
 
   byId: publicProcedure
-    .input(z.object({ id: z.number() }))
+    .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
-      // return ctx.db
-      //   .select()
-      //   .from(schema.post)
-      //   .where(eq(schema.post.id, input.id));
-
-      return ctx.db.post.findFirst({ where: { id: `${input.id}` } });
+      return ctx.db.post.findFirst({ where: { id: input.id } });
     }),
 
   create: protectedProcedure
@@ -36,7 +31,7 @@ export const postRouter = createTRPCRouter({
       return ctx.db.post.create({ data: input });
     }),
 
-  delete: protectedProcedure.input(z.number()).mutation(({ ctx, input }) => {
-    return ctx.db.post.delete({ where: { id: `${input}` } });
+  delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
+    return ctx.db.post.delete({ where: { id: input } });
   }),
 });
