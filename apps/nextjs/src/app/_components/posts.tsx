@@ -112,7 +112,7 @@ export function PostCard(props: {
         <button
           className="cursor-pointer text-sm font-bold uppercase text-pink-400"
           onClick={async () => {
-            await deletePost.mutateAsync(props.post.id);
+            await deletePost.mutateAsync(parseInt(props.post.id));
             await context.post.all.invalidate();
           }}
         >
