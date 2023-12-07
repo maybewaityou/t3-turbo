@@ -13,6 +13,7 @@
     "with-env": "dotenv -e ../../.env --",
     "lint": "eslint .",
     "format": "prettier --check . --ignore-path ../../.gitignore",
+    "postinstall": "pnpm with-env prisma generate",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
