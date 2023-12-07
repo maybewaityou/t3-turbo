@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 /* @see https://github.com/nextauthjs/next-auth/pull/8932 */
 
-import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import GithubProvider from 'next-auth/providers/github'
-import GoogleProvider from 'next-auth/providers/google'
 import type { DefaultSession } from "@auth/core/types";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import NextAuth from "next-auth";
+import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 
 import { db } from "@acme/db";
-import { env } from '~/env.mjs';
+
+import { env } from "~/env.mjs";
 
 export type { Session } from "next-auth";
 

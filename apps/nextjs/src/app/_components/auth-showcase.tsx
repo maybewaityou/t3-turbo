@@ -6,8 +6,7 @@ export async function AuthShowcase() {
   if (!session) {
     return (
       <span className="flex flex-row">
-      {
-        ['github', 'google'].map((item: string) => (
+        {["github", "google"].map((item: string) => (
           <form
             key={item}
             action={async () => {
@@ -19,8 +18,7 @@ export async function AuthShowcase() {
               Sign in with {capitalize(item)}
             </button>
           </form>
-        ))
-      }
+        ))}
       </span>
     );
   }
