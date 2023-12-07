@@ -21,6 +21,9 @@ declare module "next-auth" {
   }
 }
 
+console.log("GITHUB_CLIENT_ID", env.GITHUB_CLIENT_ID);
+console.log("process.GITHUB_CLIENT_ID", process.env.GITHUB_CLIENT_ID);
+
 export const {
   handlers: { GET, POST },
   auth,
