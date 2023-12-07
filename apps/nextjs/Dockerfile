@@ -43,23 +43,15 @@ WORKDIR /app/packages/db
 RUN pnpm run db:push
 
 FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+
 # Don't run production as root
 RUN <<EOF 
   addgroup --system --gid 1001 nodejs
   adduser --system --uid 1001 nextjs
 EOF
-
-USER nextjs
-
-# COPY --from=builder --chown=nextjs:nodejs /db /db
-
-WORKDIR /app
-
-EXPOSE 3000
-ENV PORT 3000
-
-ENV NODE_ENV production
-ENV HOSTNAME localhost
 
 COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs/next.config.mjs .
 COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs/package.json .
@@ -70,4 +62,10 @@ COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs/.next/static ./apps/nextjs/.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs/public ./apps/nextjs/public
 
-CMD node apps/nextjs/server.js
+USER nextjs
+EXPOSE 3000
+ENV PORT 3000
+# ENV HOSTNAME localhost
+
+
+CMD ["node", "apps/nextjs/server.js"]
