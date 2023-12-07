@@ -9,7 +9,7 @@ import {
 } from "./_components/posts";
 
 export default async function HomePage() {
-  const hello = await api.post.hello.query({ text: "hello" });
+  const hello = await api.post.hello.query({ text: "world" });
   return (
     <main className="flex h-screen flex-col items-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
       <div className="container mt-12 flex flex-col items-center justify-center gap-4 py-8">
