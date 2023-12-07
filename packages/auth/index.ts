@@ -9,8 +9,6 @@ import GoogleProvider from "next-auth/providers/google";
 
 import { db } from "@acme/db";
 
-import { env } from "~/env.mjs";
-
 export type { Session } from "next-auth";
 
 declare module "next-auth" {
@@ -20,8 +18,6 @@ declare module "next-auth" {
     } & DefaultSession["user"];
   }
 }
-
-console.log("env", env);
 
 export const {
   handlers: { GET, POST },
