@@ -20,6 +20,8 @@
     "lint:ws": "pnpm dlx sherif@latest",
     "typecheck": "turbo typecheck",
     "lint-staged": "lint-staged",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
     "prepare": "husky install",
     "generate:package": "turbo gen init"
   },
