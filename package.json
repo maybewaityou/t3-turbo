@@ -20,7 +20,8 @@
     "lint:ws": "pnpm dlx sherif@latest",
     "typecheck": "turbo typecheck",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:package": "turbo gen init"
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:^0.1.0",
