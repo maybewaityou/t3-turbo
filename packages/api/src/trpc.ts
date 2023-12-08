@@ -12,6 +12,7 @@ import { ZodError } from "zod";
 
 import type { Session } from "@acme/auth";
 import { auth } from "@acme/auth";
+import { kv } from "@acme/cache";
 import { db } from "@acme/db";
 
 /**
@@ -40,6 +41,7 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
     session: opts.session,
     db,
+    kv,
   };
 };
 

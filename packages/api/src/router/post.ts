@@ -27,7 +27,8 @@ export const postRouter = createTRPCRouter({
         content: z.string().min(1),
       }),
     )
-    .mutation(({ ctx, input }) => {
+    .mutation(async ({ ctx, input }) => {
+      await ctx.kv.setObj("post", input);
       return ctx.db.post.create({ data: input });
     }),
 

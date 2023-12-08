@@ -1,7 +1,10 @@
 import { Suspense } from "react";
 
+import { kv } from "@acme/cache";
+
 import { api } from "~/utils/server";
 import { AuthShowcase } from "./_components/auth-showcase";
+import { LastPost } from "./_components/last-post";
 import {
   CreatePostForm,
   PostCardSkeleton,
@@ -10,6 +13,7 @@ import {
 
 export default async function HomePage() {
   const hello = await api.post.hello.query({ text: "world" });
+  const result = await kv.getObj<any>("post");
   return (
     <main className="flex h-screen flex-col items-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
       <div className="container mt-12 flex flex-col items-center justify-center gap-4 py-8">
@@ -19,6 +23,7 @@ export default async function HomePage() {
         <p className="text-2xl text-white">
           {hello ? hello.greeting : "Loading tRPC query..."}
         </p>
+        <LastPost result={result} />
         <AuthShowcase />
 
         <CreatePostForm />

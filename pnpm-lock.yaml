@@ -75,6 +75,9 @@ importers:
       '@acme/auth':
         specifier: workspace:^0.1.0
         version: link:../../packages/auth
+      '@acme/cache':
+        specifier: workspace:^0.1.0
+        version: link:../../packages/cache
       '@acme/db':
         specifier: workspace:^0.1.0
         version: link:../../packages/db
@@ -169,6 +172,9 @@ importers:
       '@acme/auth':
         specifier: workspace:^0.1.0
         version: link:../auth
+      '@acme/cache':
+        specifier: workspace:^0.1.0
+        version: link:../cache
       '@acme/db':
         specifier: workspace:^0.1.0
         version: link:../db

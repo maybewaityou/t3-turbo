@@ -1,21 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import type { RouterOutputs } from "~/utils/client";
 import { api } from "~/utils/client";
 
 export function CreatePostForm() {
   const context = api.useUtils();
-
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const router = useRouter();
 
   const { mutateAsync: createPost, error } = api.post.create.useMutation({
     async onSuccess() {
       setTitle("");
       setContent("");
-      await context.post.all.invalidate();
+      // await context.post.all.invalidate();
+
+      router.refresh();
     },
   });
 
