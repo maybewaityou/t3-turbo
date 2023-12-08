@@ -3,10 +3,18 @@
 import type { Either } from "@acme/extensions";
 import { match } from "@acme/extensions";
 
-export function LastPost(props: { result: Either<Error, any> }) {
+import type { RouterOutputs } from "~/utils/client";
+
+export function LastPost(props: {
+  result: Either<Error, RouterOutputs["post"]["create"]>;
+}) {
   return match(
     props.result,
     () => <></>,
-    (post) => <div>{JSON.stringify(post)}</div>,
+    (post) => (
+      <div>
+        {post.title} - {post.content}
+      </div>
+    ),
   );
 }
