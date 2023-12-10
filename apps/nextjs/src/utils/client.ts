@@ -1,3 +1,10 @@
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
 import { createTRPCReact } from "@trpc/react-query";
 
 import type { AppRouter } from "@acme/api";

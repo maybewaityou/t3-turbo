@@ -1,3 +1,10 @@
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
 import { Auth } from "@auth/core";
 import Discord from "@auth/core/providers/discord";
 import { eventHandler, toWebRequest } from "h3";

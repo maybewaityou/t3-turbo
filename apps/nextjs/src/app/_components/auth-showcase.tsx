@@ -1,3 +1,10 @@
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
 import { auth, signIn, signOut } from "@acme/auth";
 
 export async function AuthShowcase() {

@@ -1,3 +1,10 @@
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
 import { authRouter } from "./router/auth";
 import { postRouter } from "./router/post";
 import { createTRPCRouter } from "./trpc";
