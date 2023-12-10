@@ -1,38 +1,42 @@
-import { z } from "zod";
-
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+import {
+  createPostInput,
+  deletePostInput,
+  helloInput,
+  postByIdInput,
+} from "./schema/post";
 
 export const postRouter = createTRPCRouter({
-  hello: publicProcedure
-    .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.text}`,
-      };
-    }),
+  hello: publicProcedure.input(helloInput).query(({ input }) => {
+    return {
+      greeting: `Hello ${input.text}`,
+    };
+  }),
   all: publicProcedure.query(({ ctx }) => {
     return ctx.db.post.findMany({ orderBy: { id: "desc" } });
   }),
 
-  byId: publicProcedure
-    .input(z.object({ id: z.string() }))
-    .query(({ ctx, input }) => {
-      return ctx.db.post.findFirst({ where: { id: input.id } });
-    }),
+  byId: publicProcedure.input(postByIdInput).query(({ ctx, input }) => {
+    return ctx.db.post.findFirst({ where: { id: input.id } });
+  }),
 
   create: protectedProcedure
-    .input(
-      z.object({
-        title: z.string().min(1),
-        content: z.string().min(1),
-      }),
-    )
+    .input(createPostInput)
     .mutation(async ({ ctx, input }) => {
       await ctx.kv.setObj("post", input);
       return ctx.db.post.create({ data: input });
     }),
 
-  delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
-    return ctx.db.post.delete({ where: { id: input } });
-  }),
+  delete: protectedProcedure
+    .input(deletePostInput)
+    .mutation(({ ctx, input }) => {
+      return ctx.db.post.delete({ where: { id: input } });
+    }),
 });
