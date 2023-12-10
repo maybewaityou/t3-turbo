@@ -1,3 +1,10 @@
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
 import { DefaultError, UseQueryResult } from "@tanstack/react-query";
 
 export function queryMatch<T, R>(
