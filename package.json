@@ -27,12 +27,12 @@
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:^0.1.0",
-    "@turbo/gen": "^1.11.0",
+    "@turbo/gen": "^1.11.1",
     "@umijs/fabric": "^4.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
-    "turbo": "^1.11.0",
+    "turbo": "^1.11.1",
     "typescript": "^5.2.2"
   },
   "pnpm": {
