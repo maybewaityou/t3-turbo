@@ -30,7 +30,7 @@
     "@acme/tsconfig": "workspace:^0.1.0",
     "eslint": "^8.53.0",
     "typescript": "^5.2.2",
-    "vitest": "^0.33.0"
+    "vitest": "^1.0.4"
   },
   "eslintConfig": {
     "extends": [
