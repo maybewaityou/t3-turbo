@@ -51,4 +51,5 @@ yarn-error.log*
 
 /.npm-only-allow
 
+# vitest
 */*/__test__/__snapshots__
