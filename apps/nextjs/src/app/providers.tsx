@@ -14,15 +14,8 @@ import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experime
 import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client";
 import superjson from "superjson";
 
-import { env } from "~/env.mjs";
 import { api } from "~/utils/client";
-
-const getBaseUrl = () => {
-  if (typeof window !== "undefined") return ""; // browser should use relative url
-  if (env.VERCEL_URL) return env.VERCEL_URL; // SSR should use vercel url
-
-  return `http://localhost:${env.SERVER_PORT}`; // dev SSR should use localhost
-};
+import { getBaseUrl } from "~/utils/shared";
 
 export function TRPCReactProvider(props: {
   children: React.ReactNode;
