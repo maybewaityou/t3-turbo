@@ -6,17 +6,19 @@
  *
  */
 
-export async function loggerHandler(opts: any) {
+export async function loggerHandler({ type, path, ctx, next }: any) {
   const start = Date.now();
 
-  const result = await opts.next();
+  const startMeta = { path, type };
+  console.log(`\n✨ tRPC request from ${ctx.source} start:`, startMeta);
+  const result = await next();
 
   const durationMs = Date.now() - start;
-  const meta = { path: opts.path, type: opts.type, durationMs };
+  const endMeta = { ...startMeta, durationMs };
 
   result.ok
-    ? console.log("<<< OK request timing:", meta)
-    : console.error("<<< Non-OK request timing", meta);
+    ? console.log("✅ OK request end timing:", endMeta)
+    : console.error("❌ Non-OK request end timing", endMeta);
 
   return result;
 }
