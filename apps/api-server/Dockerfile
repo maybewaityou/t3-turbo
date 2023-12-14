@@ -52,12 +52,11 @@ RUN <<EOF
   adduser --system --uid 1001 fastify
 EOF
 
-COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/package.json .
-COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/ ./
+COPY --from=builder --chown=fastify:nodejs /app/. .
 
 USER fastify
 EXPOSE 8080
 ENV PORT 8080
 # ENV HOSTNAME localhost
 
-CMD ["bun", "run", "src/index.ts"]
+CMD ["bun", "run", "apps/api-server/src/index.ts"]

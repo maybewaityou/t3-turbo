@@ -35,7 +35,7 @@ server.register(fastifyTRPCPlugin, {
 
 export async function start() {
   try {
-    await server.listen({ port: env.PORT });
+    await server.listen({ host: "0.0.0.0", port: env.PORT });
   } catch (err: any) {
     server.log.error(err);
     process.exit(1);
