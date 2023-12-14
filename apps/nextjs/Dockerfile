@@ -16,7 +16,7 @@ FROM with-turbo AS pruned-repo
 WORKDIR /app
 
 COPY . .
-RUN turbo prune --scope=@acme/nextjs --scope=@acme/db --docker
+RUN turbo prune --scope=@acme/nextjs --scope=@acme/api-server --scope=@acme/db --docker
 
 FROM with-turbo as builder
 WORKDIR /app
@@ -35,7 +35,7 @@ COPY turbo.json turbo.json
 COPY --from=pruned-repo /app/.env .env
 RUN <<EOF
   cd packages/db && pnpm run db:generate
-  CI=true SKIP_ENV_VALIDATION=true turbo run build --filter=@acme/nextjs... --filter=@acme/db...
+  CI=true SKIP_ENV_VALIDATION=true turbo run build --filter=@acme/nextjs... --filter=@acme/api-server... --filter=@acme/db...
 EOF
 
 WORKDIR /app/packages/db
