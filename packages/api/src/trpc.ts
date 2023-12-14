@@ -15,6 +15,8 @@ import { auth } from "@acme/auth";
 import { kv } from "@acme/cache";
 import { db } from "@acme/db";
 
+import { loggerHandler } from "./middleware/logger";
+
 /**
  * 1. CONTEXT
  *
@@ -57,7 +59,8 @@ export const createTRPCContext = async (opts: {
   const session = opts.auth ?? (await auth());
   const source = opts.headers.get("x-trpc-source") ?? "unknown";
 
-  console.log(">>> tRPC Request from", source, "by", session?.user);
+  // console.log('>>> tRPC Request from', source, 'by', session?.user)
+  console.log(">>> tRPC Request from", source);
 
   return createInnerTRPCContext({
     session,
@@ -98,13 +101,18 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
 export const createTRPCRouter = t.router;
 
 /**
+ * Logger middleware
+ */
+const loggerMiddleware = t.middleware(loggerHandler);
+
+/**
  * Public (unauthed) procedure
  *
  * This is the base piece you use to build new queries and mutations on your
  * tRPC API. It does not guarantee that a user querying is authorized, but you
  * can still access user session data if they are logged in
  */
-export const publicProcedure = t.procedure;
+export const publicProcedure = t.procedure.use(loggerMiddleware);
 
 /**
  * Reusable middleware that enforces users are logged in before running the
@@ -131,4 +139,6 @@ const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
  *
  * @see https://trpc.io/docs/procedures
  */
-export const protectedProcedure = t.procedure.use(enforceUserIsAuthed);
+export const protectedProcedure = t.procedure
+  .use(loggerMiddleware)
+  .use(enforceUserIsAuthed);
