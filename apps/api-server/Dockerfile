@@ -53,11 +53,11 @@ RUN <<EOF
 EOF
 
 COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/package.json .
-COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/src ./
+COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/ ./
 
 USER fastify
 EXPOSE 8080
 ENV PORT 8080
 # ENV HOSTNAME localhost
 
-CMD ["bun", "run", "index.ts"]
+CMD ["bun", "run", "src/index.ts"]
