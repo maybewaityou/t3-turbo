@@ -7,7 +7,7 @@ import { env } from "~/env.mjs";
 import { createContext } from "../context";
 
 const server = fastify({
-  maxParamLength: 8080,
+  maxParamLength: 5000,
   logger: {
     level: "info",
   },
@@ -15,7 +15,7 @@ const server = fastify({
 
 await server.register(import("@fastify/compress"), {});
 server.register(fastifyTRPCPlugin, {
-  prefix: "/trpc",
+  prefix: "/api/trpc",
   trpcOptions: { router: appRouter, createContext },
 });
 
