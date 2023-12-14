@@ -1,5 +1,5 @@
 {
-  "name": "@acme/api-server",
+  "name": "api-server",
   "private": true,
   "version": "0.1.0",
   "exports": {
@@ -16,7 +16,6 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint .",
-    "build": "pnpm with-env bun src/index.ts",
     "dev": "pnpm with-env bun src/index.ts",
     "start": "pnpm with-env bun src/index.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
