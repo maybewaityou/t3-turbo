@@ -14,6 +14,7 @@ export const env = createEnv({
    * built with invalid env vars.
    */
   server: {
+    HOST: z.string(),
     PORT: z.string(),
     SERVER_PORT: z.string(),
     DATABASE_URL: z.string(),
@@ -47,6 +48,7 @@ export const env = createEnv({
    */
   runtimeEnv: {
     VERCEL_URL: process.env.VERCEL_URL,
+    HOST: process.env.HOST,
     PORT: process.env.PORT,
     SERVER_PORT: process.env.SERVER_PORT,
     DATABASE_URL: process.env.DATABASE_URL,
