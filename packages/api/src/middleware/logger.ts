@@ -17,8 +17,8 @@ export async function loggerHandler({ type, path, ctx, next }: any) {
   const endMeta = { ...startMeta, durationMs };
 
   result.ok
-    ? console.log("✅ OK request end timing:", endMeta)
-    : console.error("❌ Non-OK request end timing", endMeta);
+    ? console.log("🎯 OK request end timing:", endMeta)
+    : console.error("🐛 Non-OK request end timing", endMeta);
 
   return result;
 }
