@@ -17,7 +17,7 @@ export const createContext = () =>
   createTRPCContext({
     headers: new Headers({
       cookie: cookies().toString(),
-      "x-trpc-source": "rsc",
+      "x-trpc-source": "api-server",
     }),
   });
 
