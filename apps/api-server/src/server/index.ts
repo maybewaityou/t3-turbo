@@ -1,3 +1,5 @@
+import cors from "@fastify/cors";
+import helmet from "@fastify/helmet";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import fastify from "fastify";
 
@@ -13,6 +15,11 @@ const server = fastify({
   },
 });
 
+server.register(cors, {
+  origin: "*",
+  credentials: true,
+});
+server.register(helmet);
 await server.register(import("@fastify/compress"), {});
 server.register(fastifyTRPCPlugin, {
   prefix: "/api/trpc",
