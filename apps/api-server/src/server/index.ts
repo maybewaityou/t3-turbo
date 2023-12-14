@@ -7,7 +7,7 @@ import { env } from "~/env.mjs";
 import { createContext } from "../context";
 
 const server = fastify({
-  maxParamLength: 5000,
+  maxParamLength: 8080,
   logger: {
     level: "info",
   },

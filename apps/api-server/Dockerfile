@@ -56,8 +56,8 @@ COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/package.json .
 COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/src ./
 
 USER fastify
-EXPOSE 5000
-ENV PORT 5000
+EXPOSE 8080
+ENV PORT 8080
 # ENV HOSTNAME localhost
 
 CMD ["bun", "run", "index.ts"]

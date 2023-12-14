@@ -3,7 +3,7 @@ import { z } from "zod";
 
 export const env = createEnv({
   shared: {
-    PORT: z.coerce.number().default(5000),
+    PORT: z.coerce.number().default(8080),
   },
   /**
    * Specify your server-side environment variables schema here. This way you can ensure the app isn't
