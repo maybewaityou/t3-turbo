@@ -10,4 +10,14 @@ services:
     env_file:
       - .env
     ports:
-      - 13081:3000
+      - 3000:3000
+  server:
+    container_name: api-server
+    build:
+      context: .
+      dockerfile: ./apps/api-server/Dockerfile
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 5000:5000
