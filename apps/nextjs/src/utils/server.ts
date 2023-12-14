@@ -8,7 +8,6 @@
 import "server-only";
 
 import { cache } from "react";
-import { cookies } from "next/headers";
 import {
   createTRPCProxyClient,
   httpBatchLink,
@@ -32,7 +31,6 @@ import { getBaseUrl } from "./shared";
 const createContext = cache(() => {
   return createTRPCContext({
     headers: new Headers({
-      cookie: cookies().toString(),
       "x-trpc-source": "rsc",
     }),
   });

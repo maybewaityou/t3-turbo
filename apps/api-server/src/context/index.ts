@@ -5,7 +5,6 @@
  * description:
  *
  */
-import { cookies } from "next/headers";
 
 import { createTRPCContext } from "@acme/api";
 
@@ -16,7 +15,6 @@ import { createTRPCContext } from "@acme/api";
 export const createContext = () =>
   createTRPCContext({
     headers: new Headers({
-      cookie: cookies().toString(),
       "x-trpc-source": "api-server",
     }),
   });
