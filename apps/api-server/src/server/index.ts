@@ -1,3 +1,10 @@
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
 import cors from "@fastify/cors";
 import helmet from "@fastify/helmet";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
@@ -20,7 +27,7 @@ server.register(cors, {
   credentials: true,
 });
 server.register(helmet);
-await server.register(import("@fastify/compress"), {});
+// await server.register(import('@fastify/compress'), {})
 server.register(fastifyTRPCPlugin, {
   prefix: "/api/trpc",
   trpcOptions: { router: appRouter, createContext },
