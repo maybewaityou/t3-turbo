@@ -46,7 +46,6 @@ WORKDIR /app
 
 ENV NODE_ENV production
 
-
 # Don't run production as root
 RUN <<EOF 
   addgroup --system --gid 1001 nodejs
@@ -55,7 +54,6 @@ EOF
 
 COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/package.json .
 COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/src ./
-
 
 USER fastify
 EXPOSE 5000
