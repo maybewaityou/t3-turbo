@@ -11,6 +11,7 @@ import { kv } from "@acme/cache";
 
 import type { RouterOutputs } from "~/utils/client";
 import { api } from "~/utils/server";
+import { getBaseUrl } from "~/utils/shared";
 import { AuthShowcase } from "./_components/auth-showcase";
 import { LastPost } from "./_components/last-post";
 import {
@@ -20,6 +21,9 @@ import {
 } from "./_components/posts";
 
 export default async function HomePage() {
+  const url = getBaseUrl();
+  console.log(url);
+
   const hello = await api.post.hello.query({ text: "world" });
   const result = await kv.getObj<RouterOutputs["post"]["create"]>("post");
   return (
