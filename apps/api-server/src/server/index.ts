@@ -8,6 +8,7 @@ import { createContext } from "../context";
 
 const server = fastify({
   maxParamLength: 5000,
+  logger: true,
 });
 
 await server.register(import("@fastify/compress"), {});
