@@ -10,6 +10,7 @@ const server = fastify({
   maxParamLength: 5000,
 });
 
+await server.register(import("@fastify/compress"), {});
 server.register(fastifyTRPCPlugin, {
   prefix: "/trpc",
   trpcOptions: { router: appRouter, createContext },

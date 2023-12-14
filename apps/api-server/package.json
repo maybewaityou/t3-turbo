@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@acme/api": "workspace:^0.1.0",
+    "@fastify/compress": "^6.5.0",
     "@trpc/server": "next",
     "fastify": "^4.25.0",
     "superjson": "2.2.1",
