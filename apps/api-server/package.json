@@ -2,9 +2,6 @@
   "name": "api-server",
   "private": true,
   "version": "0.1.0",
-  "exports": {
-    ".": "./index.ts"
-  },
   "typesVersions": {
     "*": {
       "*": [
