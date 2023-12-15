@@ -22,7 +22,14 @@ import superjson from "superjson";
 import { appRouter } from "@acme/api/src/root";
 import { createTRPCContext } from "@acme/api/src/trpc";
 
-import { getBaseUrl } from "./shared";
+import { env } from "~/env.mjs";
+
+export const getBaseUrl = () => {
+  if (typeof window !== "undefined") return ""; // browser should use relative url
+  if (env.VERCEL_URL) return env.VERCEL_URL; // SSR should use vercel url
+
+  return `http://${env.HOST}:${env.SERVER_PORT}`; // dev SSR should use localhost
+};
 
 /**
  * This wraps the `createTRPCContext` helper and provides the required context for the tRPC API when

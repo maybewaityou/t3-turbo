@@ -14,7 +14,7 @@ import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experime
 import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client";
 import superjson from "superjson";
 
-import { api } from "~/utils/client";
+import { api, getBaseUrl } from "~/utils/client";
 
 export function TRPCReactProvider(props: {
   children: React.ReactNode;
@@ -41,7 +41,7 @@ export function TRPCReactProvider(props: {
             (opts.direction === "down" && opts.result instanceof Error),
         }),
         unstable_httpBatchStreamLink({
-          url: `/api/trpc`,
+          url: `${getBaseUrl()}/api/trpc`,
           headers() {
             const headers = new Map(props.headers);
             headers.set("x-trpc-source", "nextjs-react");
