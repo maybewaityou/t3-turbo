@@ -16,6 +16,7 @@ export const env = createEnv({
   server: {
     HOST: z.string(),
     PORT: z.string(),
+    SERVER_HOST: z.string(),
     SERVER_PORT: z.string(),
     DATABASE_URL: z.string(),
     REDIS_KEY_PREFIX: z.string(),
@@ -50,6 +51,7 @@ export const env = createEnv({
     VERCEL_URL: process.env.VERCEL_URL,
     HOST: process.env.HOST,
     PORT: process.env.PORT,
+    SERVER_HOST: process.env.SERVER_HOST,
     SERVER_PORT: process.env.SERVER_PORT,
     DATABASE_URL: process.env.DATABASE_URL,
     REDIS_KEY_PREFIX: process.env.REDIS_KEY_PREFIX,
