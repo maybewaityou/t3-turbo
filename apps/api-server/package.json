@@ -13,8 +13,8 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint .",
-    "dev": "pnpm with-env bun src/index.ts",
-    "start": "pnpm with-env bun src/index.ts",
+    "dev": "pnpm with-env bun --bun src/index.ts",
+    "start": "pnpm with-env bun --bun src/index.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --"

@@ -66,4 +66,4 @@ EXPOSE 8080
 ENV PORT 8080
 # ENV HOSTNAME localhost
 
-CMD ["bun", "run", "apps/api-server/src/index.ts"]
+CMD ["bun", "run", "--bun", "apps/api-server/src/index.ts"]
