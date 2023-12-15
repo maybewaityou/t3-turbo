@@ -5,6 +5,7 @@
  * description:
  *
  */
+import { AnyRouter } from "@trpc/server";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import { FastifyInstance, FastifyRegisterOptions } from "fastify";
 
@@ -14,7 +15,7 @@ import { createContext } from "~/context";
 
 export const trpcPlugin = (
   server: FastifyInstance,
-  _: FastifyRegisterOptions<FastifyRegisterOptions<any>>,
+  _: FastifyRegisterOptions<AnyRouter>,
   done: (err?: Error) => void,
 ) => {
   server.register(fastifyTRPCPlugin, {

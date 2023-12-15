@@ -5,7 +5,6 @@
  * description:
  *
  */
-// import { AnyRouter } from '@trpc/server'
 import { FastifyInstance, FastifyRegisterOptions } from "fastify";
 
 export const apiRoutes = (
