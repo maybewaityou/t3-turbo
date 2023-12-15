@@ -81,8 +81,7 @@ export function CreatePostForm() {
 }
 
 export function PostList() {
-  const result = api.post.all.useQuery();
-  const posts = result.data ?? [];
+  const [posts] = api.post.all.useSuspenseQuery();
 
   if (posts.length === 0) {
     return (
