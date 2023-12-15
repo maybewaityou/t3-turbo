@@ -13,7 +13,7 @@ export const apiRoutes = (
   _: FastifyRegisterOptions<any>,
   done: (err?: Error) => void,
 ) => {
-  server.get("/", async (request, reply) => {
+  server.get("/hello", async (request, reply) => {
     return { hello: "world" };
   });
 
