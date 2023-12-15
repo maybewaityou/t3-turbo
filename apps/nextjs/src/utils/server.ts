@@ -13,6 +13,7 @@ import {
   httpBatchLink,
   loggerLink,
   TRPCClientError,
+  type Operation,
 } from "@trpc/client";
 import { callProcedure } from "@trpc/server";
 import { observable } from "@trpc/server/observable";
@@ -43,6 +44,37 @@ const createContext = cache(() => {
   });
 });
 
+function httpLink(): any {
+  if (env.USE_FASTIFY)
+    return httpBatchLink({ url: `${getBaseUrl()}/api/trpc` });
+
+  /**
+   * Custom RSC link that lets us invoke procedures without using http requests. Since Server
+   * Components always run on the server, we can just call the procedure as a function.
+   */
+  return () =>
+    ({ op }: { op: Operation }) =>
+      observable((observer) => {
+        createContext()
+          .then((ctx) => {
+            return callProcedure({
+              procedures: appRouter._def.procedures,
+              path: op.path,
+              getRawInput: () => Promise.resolve(op.input),
+              ctx,
+              type: op.type,
+            });
+          })
+          .then((data) => {
+            observer.next({ result: { data } });
+            observer.complete();
+          })
+          .catch((cause: TRPCErrorResponse) => {
+            observer.error(TRPCClientError.from(cause));
+          });
+      });
+}
+
 export const api = createTRPCProxyClient<typeof appRouter>({
   transformer: superjson,
   links: [
@@ -51,31 +83,6 @@ export const api = createTRPCProxyClient<typeof appRouter>({
         process.env.NODE_ENV === "development" ||
         (op.direction === "down" && op.result instanceof Error),
     }),
-    httpBatchLink({ url: `${getBaseUrl()}/api/trpc` }),
-    /**
-     * Custom RSC link that lets us invoke procedures without using http requests. Since Server
-     * Components always run on the server, we can just call the procedure as a function.
-     */
-    () =>
-      ({ op }) =>
-        observable((observer) => {
-          createContext()
-            .then((ctx) => {
-              return callProcedure({
-                procedures: appRouter._def.procedures,
-                path: op.path,
-                getRawInput: () => Promise.resolve(op.input),
-                ctx,
-                type: op.type,
-              });
-            })
-            .then((data) => {
-              observer.next({ result: { data } });
-              observer.complete();
-            })
-            .catch((cause: TRPCErrorResponse) => {
-              observer.error(TRPCClientError.from(cause));
-            });
-        }),
+    httpLink(),
   ],
 });
