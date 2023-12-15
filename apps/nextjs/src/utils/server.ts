@@ -45,7 +45,7 @@ const createContext = cache(() => {
 });
 
 function httpLink(): any {
-  if (env.USE_FASTIFY)
+  if (env.USE_FASTIFY === "true")
     return httpBatchLink({ url: `${getBaseUrl()}/api/trpc` });
 
   /**
