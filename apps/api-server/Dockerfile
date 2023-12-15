@@ -52,7 +52,11 @@ RUN <<EOF
   adduser --system --uid 1001 fastify
 EOF
 
-COPY --from=builder --chown=fastify:nodejs /app/apps/api-server ./apps/api-server
+COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/src ./apps/api-server/src
+COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/node_modules ./apps/api-server/node_modules
+COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/package.json ./apps/api-server/package.json
+COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/tsconfig.json ./apps/api-server/tsconfig.json
+
 COPY --from=builder --chown=fastify:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=fastify:nodejs /app/packages ./packages
 COPY --from=builder --chown=fastify:nodejs /app/package.json ./package.json
