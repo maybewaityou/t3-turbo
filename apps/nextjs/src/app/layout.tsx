@@ -27,18 +27,13 @@ const fontSans = Inter({
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Create T3 Turbo",
+  title: "T3 Turbo",
   description: "Simple monorepo with shared backend for web & mobile apps",
   openGraph: {
-    title: "Create T3 Turbo",
+    title: "T3 Turbo",
     description: "Simple monorepo with shared backend for web & mobile apps",
     url: "https://create-t3-turbo.vercel.app",
-    siteName: "Create T3 Turbo",
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@jullerino",
-    creator: "@jullerino",
+    siteName: "T3 Turbo",
   },
 };
 
