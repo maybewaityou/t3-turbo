@@ -5,6 +5,7 @@
  * description:
  *
  */
+import { cache } from "react";
 import { cookie } from "@elysiajs/cookie";
 import { cors } from "@elysiajs/cors";
 import { swagger } from "@elysiajs/swagger";
@@ -12,8 +13,15 @@ import { trpc } from "@elysiajs/trpc";
 import { Elysia } from "elysia";
 
 import { appRouter } from "@acme/api";
+import { createTRPCContext } from "@acme/api/src/trpc";
 
-import { createContext } from "~/utils/server";
+const createContext = cache(() => {
+  return createTRPCContext({
+    headers: new Headers({
+      "x-trpc-source": "elysia",
+    }),
+  });
+});
 
 export type Context = Awaited<ReturnType<typeof createContext>>;
 

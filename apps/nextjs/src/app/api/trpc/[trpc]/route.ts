@@ -31,7 +31,7 @@ export function OPTIONS() {
 
 const handler = auth(async (req) => {
   const response = await fetchRequestHandler({
-    endpoint: "/api/trpc",
+    endpoint: "/api/trpc2",
     router: appRouter,
     req,
     createContext: () =>
