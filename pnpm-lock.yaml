@@ -188,6 +188,27 @@ importers:
       '@acme/tanstack':
         specifier: workspace:^0.1.0
         version: link:../../packages/tanstack
+      '@elysiajs/cookie':
+        specifier: ^0.7.0
+        version: 0.7.0(elysia@0.7.30)
+      '@elysiajs/cors':
+        specifier: ^0.7.2
+        version: 0.7.2(elysia@0.7.30)
+      '@elysiajs/jwt':
+        specifier: ^0.7.1
+        version: 0.7.1(elysia@0.7.30)
+      '@elysiajs/stream':
+        specifier: ^0.7.2
+        version: 0.7.2(elysia@0.7.30)
+      '@elysiajs/swagger':
+        specifier: ^0.7.4
+        version: 0.7.4(elysia@0.7.30)
+      '@elysiajs/trpc':
+        specifier: ^0.7.0
+        version: 0.7.0(elysia@0.7.30)
+      '@elysiajs/websocket':
+        specifier: ^0.2.8
+        version: 0.2.8(elysia@0.7.30)
       '@t3-oss/env-nextjs':
         specifier: ^0.7.1
         version: 0.7.1(typescript@5.2.2)(zod@3.22.2)
