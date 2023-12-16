@@ -23,8 +23,6 @@ const createContext = cache(() => {
   });
 });
 
-export type Context = Awaited<ReturnType<typeof createContext>>;
-
 const app = new Elysia()
   .use(cors())
   .use(cookie())
