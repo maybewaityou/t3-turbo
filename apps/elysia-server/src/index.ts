@@ -27,4 +27,6 @@ new Elysia()
       createContext,
     }),
   )
-  .listen(env.PORT)
+  .listen(env.PORT, ({ hostname, port }) => {
+    console.log(`🦊 running at http://${hostname}:${port}`)
+  })
