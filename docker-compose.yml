@@ -12,10 +12,10 @@ services:
     ports:
       - 3000:3000
   server:
-    container_name: api-server
+    container_name: fastify-server
     build:
       context: .
-      dockerfile: ./apps/api-server/Dockerfile
+      dockerfile: ./apps/fastify-server/Dockerfile
     restart: always
     env_file:
       - .env

@@ -16,7 +16,7 @@ FROM with-turbo AS pruned-repo
 WORKDIR /app
 
 COPY . .
-RUN turbo prune --scope=@acme/nextjs --scope=@acme/api-server --scope=@acme/db --docker
+RUN turbo prune --scope=@acme/nextjs --scope=@acme/fastify-server --scope=@acme/db --docker
 
 FROM with-turbo as builder
 WORKDIR /app
@@ -35,7 +35,7 @@ COPY turbo.json turbo.json
 COPY --from=pruned-repo /app/.env .env
 RUN <<EOF
   cd packages/db && pnpm run db:generate
-  CI=true SKIP_ENV_VALIDATION=true turbo run build --filter=@acme/nextjs... --filter=@acme/api-server... --filter=@acme/db...
+  CI=true SKIP_ENV_VALIDATION=true turbo run build --filter=@acme/nextjs... --filter=@acme/fastify-server... --filter=@acme/db...
 EOF
 
 WORKDIR /app/packages/db
@@ -52,10 +52,10 @@ RUN <<EOF
   adduser --system --uid 1001 fastify
 EOF
 
-COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/src ./apps/api-server/src
-COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/node_modules ./apps/api-server/node_modules
-COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/package.json ./apps/api-server/package.json
-COPY --from=builder --chown=fastify:nodejs /app/apps/api-server/tsconfig.json ./apps/api-server/tsconfig.json
+COPY --from=builder --chown=fastify:nodejs /app/apps/fastify-server/src ./apps/fastify-server/src
+COPY --from=builder --chown=fastify:nodejs /app/apps/fastify-server/node_modules ./apps/fastify-server/node_modules
+COPY --from=builder --chown=fastify:nodejs /app/apps/fastify-server/package.json ./apps/fastify-server/package.json
+COPY --from=builder --chown=fastify:nodejs /app/apps/fastify-server/tsconfig.json ./apps/fastify-server/tsconfig.json
 
 COPY --from=builder --chown=fastify:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=fastify:nodejs /app/packages ./packages
@@ -66,4 +66,4 @@ EXPOSE 8080
 ENV PORT 8080
 # ENV HOSTNAME localhost
 
-CMD ["bun", "run", "--bun", "apps/api-server/src/index.ts"]
+CMD ["bun", "run", "--bun", "apps/fastify-server/src/index.ts"]

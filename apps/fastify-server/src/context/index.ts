@@ -5,7 +5,7 @@
  * description:
  *
  */
-import { createTRPCContext } from "@acme/api";
+import { createTRPCContext } from '@acme/api'
 
 /**
  * This wraps the `createTRPCContext` helper and provides the required context for the tRPC API when
@@ -14,8 +14,8 @@ import { createTRPCContext } from "@acme/api";
 export const createContext = () =>
   createTRPCContext({
     headers: new Headers({
-      "x-trpc-source": "api-server",
+      'x-trpc-source': 'fastify-server',
     }),
-  });
+  })
 
-export type Context = Awaited<ReturnType<typeof createContext>>;
+export type Context = Awaited<ReturnType<typeof createContext>>
