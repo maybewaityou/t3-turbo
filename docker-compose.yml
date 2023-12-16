@@ -12,10 +12,10 @@ services:
     ports:
       - 3000:3000
   server:
-    container_name: fastify-server
+    container_name: elysia-server
     build:
       context: .
-      dockerfile: ./apps/fastify-server/Dockerfile
+      dockerfile: ./apps/elysia-server/Dockerfile
     restart: always
     env_file:
       - .env
