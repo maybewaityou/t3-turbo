@@ -5,7 +5,6 @@
  * description:
  *
  */
-
 import { cookie } from "@elysiajs/cookie";
 import { cors } from "@elysiajs/cors";
 import { swagger } from "@elysiajs/swagger";
@@ -14,10 +13,11 @@ import { Elysia } from "elysia";
 
 import { appRouter } from "@acme/api";
 
-import { createContext } from "~/context";
-import { env } from "~/env.mjs";
+import { createContext } from "~/utils/server";
 
-new Elysia()
+export type Context = Awaited<ReturnType<typeof createContext>>;
+
+const app = new Elysia()
   .use(cors())
   .use(cookie())
   .use(swagger())
@@ -26,7 +26,7 @@ new Elysia()
       endpoint: "/api/trpc",
       createContext,
     }),
-  )
-  .listen(env.PORT, ({ hostname, port }) => {
-    console.log(`🦊 running at http://${hostname}:${port}`);
-  });
+  );
+
+export const GET = app.handle;
+export const POST = app.handle;
