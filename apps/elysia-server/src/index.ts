@@ -6,27 +6,15 @@
  *
  */
 
-import { cookie } from "@elysiajs/cookie";
-import { cors } from "@elysiajs/cors";
-import { swagger } from "@elysiajs/swagger";
-import { trpc } from "@elysiajs/trpc";
 import { Elysia } from "elysia";
 
-import { appRouter } from "@acme/api";
+import { trpcAppWithContext } from "@acme/elysia";
 
 import { createContext } from "~/context";
 import { env } from "~/env.mjs";
 
-new Elysia()
-  .use(cors())
-  .use(cookie())
-  .use(swagger())
-  .use(
-    trpc(appRouter, {
-      endpoint: "/api/trpc",
-      createContext,
-    }),
-  )
+const app = new Elysia()
+  .use(trpcAppWithContext(createContext))
   .listen(env.PORT, ({ hostname, port }) => {
     console.log(`🦊 running at http://${hostname}:${port}`);
   });

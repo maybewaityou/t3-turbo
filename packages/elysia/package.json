@@ -1,7 +1,10 @@
 {
-  "name": "@acme/elysia-server",
+  "name": "@acme/elysia",
   "private": true,
   "version": "0.1.0",
+  "exports": {
+    ".": "./index.ts"
+  },
   "typesVersions": {
     "*": {
       "*": [
@@ -13,23 +16,16 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint .",
-    "dev": "pnpm with-env bun --watch --bun src/index.ts",
-    "start": "pnpm with-env bun --bun src/index.ts",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "typecheck": "tsc --noEmit",
-    "with-env": "dotenv -e ../../.env --"
-  },
-  "dependencies": {
-    "@acme/api": "workspace:^0.1.0",
-    "@acme/elysia": "workspace:^0.1.0",
-    "@trpc/server": "next",
-    "superjson": "2.2.1",
-    "zod": "^3.22.2"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:^0.2.0",
     "@acme/prettier-config": "workspace:^0.1.0",
     "@acme/tsconfig": "workspace:^0.1.0",
+    "@trpc/server": "next",
     "eslint": "^8.53.0",
     "typescript": "^5.2.2",
     "vitest": "^1.0.4"
@@ -39,5 +35,15 @@
       "@acme/eslint-config/base"
     ]
   },
-  "prettier": "@acme/prettier-config"
+  "prettier": "@acme/prettier-config",
+  "dependencies": {
+    "@acme/api": "workspace:^",
+    "@elysiajs/cookie": "^0.7.0",
+    "@elysiajs/cors": "^0.7.2",
+    "@elysiajs/jwt": "^0.7.1",
+    "@elysiajs/stream": "^0.7.2",
+    "@elysiajs/swagger": "^0.7.4",
+    "@elysiajs/trpc": "^0.7.0",
+    "@elysiajs/websocket": "^0.2.8"
+  }
 }

@@ -6,14 +6,10 @@
  *
  */
 import { cache } from "react";
-import { cookie } from "@elysiajs/cookie";
-import { cors } from "@elysiajs/cors";
-import { swagger } from "@elysiajs/swagger";
-import { trpc } from "@elysiajs/trpc";
 import { Elysia } from "elysia";
 
-import { appRouter } from "@acme/api";
 import { createTRPCContext } from "@acme/api/src/trpc";
+import { trpcAppWithContext } from "@acme/elysia";
 
 const createContext = cache(() => {
   return createTRPCContext({
@@ -23,16 +19,7 @@ const createContext = cache(() => {
   });
 });
 
-const app = new Elysia()
-  .use(cors())
-  .use(cookie())
-  .use(swagger())
-  .use(
-    trpc(appRouter, {
-      endpoint: "/api/trpc",
-      createContext,
-    }),
-  );
+const app = new Elysia().use(trpcAppWithContext(createContext));
 
 export const GET = app.handle;
 export const POST = app.handle;
