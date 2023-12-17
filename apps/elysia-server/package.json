@@ -23,6 +23,7 @@
     "@acme/api": "workspace:^0.1.0",
     "@acme/elysia": "workspace:^0.1.0",
     "@trpc/server": "next",
+    "elysia-decorators": "^0.0.2",
     "superjson": "2.2.1",
     "zod": "^3.22.2"
   },
