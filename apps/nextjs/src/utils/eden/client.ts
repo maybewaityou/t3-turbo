@@ -11,6 +11,6 @@ import { App } from "@acme/elysia-server";
 
 import { env } from "~/env.mjs";
 
-export const client = edenTreaty<App>(
+export const eden = edenTreaty<App>(
   `http://${env.SERVER_HOST}:${env.SERVER_PORT}`,
 );
