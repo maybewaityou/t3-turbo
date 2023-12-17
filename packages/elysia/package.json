@@ -46,8 +46,6 @@
     "@elysiajs/stream": "^0.7.2",
     "@elysiajs/swagger": "^0.7.4",
     "@elysiajs/trpc": "^0.7.0",
-    "@elysiajs/websocket": "^0.2.8",
-    "elysia-helmet": "^1.0.1",
-    "elysia-http-error": "^1.1.2"
+    "@elysiajs/websocket": "^0.2.8"
   }
 }

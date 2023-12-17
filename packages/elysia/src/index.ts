@@ -5,14 +5,11 @@
  * description:
  *
  */
-import { etag } from "@bogeychan/elysia-etag";
 import { cookie } from "@elysiajs/cookie";
 import { cors } from "@elysiajs/cors";
 import { swagger } from "@elysiajs/swagger";
 import { trpc } from "@elysiajs/trpc";
 import { Elysia } from "elysia";
-import { helmet } from "elysia-helmet";
-import { httpErrorDecorator } from "elysia-http-error";
 
 import { appRouter } from "@acme/api";
 import { createTRPCContext } from "@acme/api/src/trpc";
@@ -25,13 +22,7 @@ export const trpcCreateContext = () => {
   });
 };
 
-const app = new Elysia()
-  .use(etag())
-  .use(cors())
-  .use(helmet())
-  .use(cookie())
-  .use(swagger())
-  .use(httpErrorDecorator);
+const app = new Elysia().use(cors()).use(cookie()).use(swagger());
 
 export const trpcAppWithContext = (contextCreator: typeof trpcCreateContext) =>
   app.use(
