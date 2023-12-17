@@ -10,7 +10,7 @@
 import type { Either } from "@acme/extensions";
 import { match } from "@acme/extensions";
 
-import type { RouterOutputs } from "~/utils/client";
+import type { RouterOutputs } from "~/utils/trpc/client";
 
 export function LastPost(props: {
   result: Either<Error, RouterOutputs["post"]["create"] | null>;

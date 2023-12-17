@@ -22,14 +22,12 @@ export const trpcCreateContext = () => {
   });
 };
 
+const app = new Elysia().use(cors()).use(cookie()).use(swagger());
+
 export const trpcAppWithContext = (contextCreator: typeof trpcCreateContext) =>
-  new Elysia()
-    .use(cors())
-    .use(cookie())
-    .use(swagger())
-    .use(
-      trpc(appRouter, {
-        endpoint: "/api/trpc",
-        createContext: contextCreator,
-      }),
-    );
+  app.use(
+    trpc(appRouter, {
+      endpoint: "/api/trpc",
+      createContext: contextCreator,
+    }),
+  );

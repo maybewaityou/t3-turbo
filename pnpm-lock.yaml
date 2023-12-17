@@ -167,12 +167,18 @@ importers:
       '@acme/elysia':
         specifier: workspace:^0.1.0
         version: link:../../packages/elysia
+      '@acme/elysia-server':
+        specifier: workspace:^
+        version: link:../elysia-server
       '@acme/extensions':
         specifier: workspace:^0.1.0
         version: link:../../packages/extensions
       '@acme/tanstack':
         specifier: workspace:^0.1.0
         version: link:../../packages/tanstack
+      '@elysiajs/eden':
+        specifier: ^0.7.7
+        version: 0.7.7(elysia@0.7.30)
       '@t3-oss/env-nextjs':
         specifier: ^0.7.1
         version: 0.7.1(typescript@5.2.2)(zod@3.22.2)
@@ -2058,6 +2064,19 @@ packages:
       elysia: '>= 0.7.0'
     dependencies:
       elysia: 0.7.30(typescript@5.2.2)
+    dev: false
+
+  /@elysiajs/eden@0.7.7(elysia@0.7.30):
+    resolution: {integrity: sha512-T7bF5pzOa8L5plTOyCEvy2yGzOAXUwe1v06d3m1SKLGZYYeSqzjwIC4Bnph9N4n1aA+aIC+DtRBbP/EdELR0zg==}
+    peerDependencies:
+      '@sinclair/typebox': '*'
+      elysia: '>= 0.7.0'
+    peerDependenciesMeta:
+      '@sinclair/typebox':
+        optional: true
+    dependencies:
+      elysia: 0.7.30(typescript@5.2.2)
+      superjson: 2.2.1
     dev: false
 
   /@elysiajs/jwt@0.7.1(elysia@0.7.30):
@@ -5067,7 +5086,7 @@ packages:
       eventemitter3: 5.0.1
       fast-querystring: 1.1.2
       memoirist: 0.1.4
-      typescript: registry.npmjs.org/typescript@5.2.2
+      typescript: 5.2.2
     dev: false
 
   /emoji-regex@10.3.0:
@@ -11880,6 +11899,7 @@ packages:
     version: 5.2.2
     engines: {node: '>=14.17'}
     hasBin: true
+    dev: true
 
   registry.npmjs.org/ufo@1.3.1:
     resolution: {integrity: sha512-uY/99gMLIOlJPwATcMVYfqDSxUR9//AUcgZMzwfSTJPDKzA1S8mX4VLqa+fiAtveraQUBCz4FFcwVZBGbwBXIw==, tarball: https://registry.npmjs.org/ufo/-/ufo-1.3.1.tgz}

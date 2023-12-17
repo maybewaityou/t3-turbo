@@ -14,7 +14,10 @@ import { createContext } from "~/context";
 import { env } from "~/env.mjs";
 
 const app = new Elysia()
+  .get("/elysia", () => "Hi Elysia")
   .use(trpcAppWithContext(createContext))
   .listen(env.PORT, ({ hostname, port }) => {
     console.log(`🦊 running at http://${hostname}:${port}`);
   });
+
+export type App = typeof app;

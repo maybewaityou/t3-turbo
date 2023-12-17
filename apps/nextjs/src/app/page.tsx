@@ -9,8 +9,8 @@ import { Suspense } from "react";
 
 import { kv } from "@acme/cache";
 
-import type { RouterOutputs } from "~/utils/client";
-import { api } from "~/utils/server";
+import type { RouterOutputs } from "~/utils/trpc/client";
+import { api } from "~/utils/trpc/server";
 import { AuthShowcase } from "./_components/auth-showcase";
 import { LastPost } from "./_components/last-post";
 import {
