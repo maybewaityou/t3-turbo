@@ -8,6 +8,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
+import StyledComponentsRegistry from "~/lib/AntdRegistry";
+
 import "~/styles/globals.css";
 
 import { headers } from "next/headers";
@@ -42,7 +44,7 @@ export default function Layout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body className={["font-sans", fontSans.variable].join(" ")}>
         <TRPCReactProvider headers={headers()}>
-          {props.children}
+          <StyledComponentsRegistry>{props.children}</StyledComponentsRegistry>
         </TRPCReactProvider>
       </body>
     </html>
