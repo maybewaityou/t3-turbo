@@ -5,18 +5,16 @@
  * description:
  *
  */
-import { useState } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experimental";
-import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client";
-import superjson from "superjson";
+import { useState } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental';
+import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
+import superjson from 'superjson';
 
-import {api, getBaseUrl} from './utils/trpc/client';
+import { api, getBaseUrl } from './utils/trpc/client';
 
-export function TRPCReactProvider(props: {
-  children: React.ReactNode;
-}) {
+export function TRPCReactProvider(props: { children: React.ReactNode }) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -34,14 +32,14 @@ export function TRPCReactProvider(props: {
       links: [
         loggerLink({
           enabled: (opts) =>
-            process.env.NODE_ENV === "development" ||
-            (opts.direction === "down" && opts.result instanceof Error),
+            process.env.NODE_ENV === 'development' ||
+            (opts.direction === 'down' && opts.result instanceof Error),
         }),
         unstable_httpBatchStreamLink({
           url: `${getBaseUrl()}/api/trpc`,
           headers() {
             const headers = new Map();
-            headers.set("x-trpc-source", "antd-pro");
+            headers.set('x-trpc-source', 'antd-pro');
             return Object.fromEntries(headers);
           },
         }),

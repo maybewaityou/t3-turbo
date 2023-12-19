@@ -12,7 +12,7 @@ import React from 'react';
 import { AvatarDropdown, AvatarName } from './components/RightContent/AvatarDropdown';
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
-import {TRPCReactProvider} from './providers';
+import { TRPCReactProvider } from './providers';
 
 /**
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
@@ -108,9 +108,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
       // if (initialState?.loading) return <PageLoading />;
       return (
         <>
-          <TRPCReactProvider>
-            {children}
-          </TRPCReactProvider>
+          <TRPCReactProvider>{children}</TRPCReactProvider>
           <SettingDrawer
             disableUrlParams
             enableDarkTheme

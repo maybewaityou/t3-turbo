@@ -18,7 +18,7 @@ const InfoCard: React.FC<{
   const { useToken } = theme;
 
   const { token } = useToken();
-  const {data} = api.post.all.useQuery();
+  const { data } = api.post.all.useQuery();
   console.log('== data ===>>>> ', data);
 
   return (
