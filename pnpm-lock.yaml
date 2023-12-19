@@ -167,6 +167,18 @@ importers:
 
   apps/management-platform:
     dependencies:
+      '@acme/api':
+        specifier: workspace:^0.1.0
+        version: link:../../packages/api
+      '@acme/elysia':
+        specifier: workspace:^0.1.0
+        version: link:../../packages/elysia
+      '@acme/extensions':
+        specifier: workspace:^0.1.0
+        version: link:../../packages/extensions
+      '@acme/tanstack':
+        specifier: workspace:^0.1.0
+        version: link:../../packages/tanstack
       '@ant-design/icons':
         specifier: ^4.8.0
         version: 4.8.1(react-dom@18.2.0)(react@18.2.0)
@@ -176,6 +188,27 @@ importers:
       '@ant-design/use-emotion-css':
         specifier: 1.0.4
         version: 1.0.4(antd@5.12.3)(react-dom@18.2.0)(react@18.2.0)
+      '@elysiajs/eden':
+        specifier: ^0.7.7
+        version: 0.7.7(elysia@0.7.30)
+      '@tanstack/react-query':
+        specifier: ^5.8.7
+        version: 5.8.7(react-dom@18.2.0)(react@18.2.0)
+      '@tanstack/react-query-devtools':
+        specifier: ^5.8.7
+        version: 5.8.7(@tanstack/react-query@5.8.7)(react-dom@18.2.0)(react@18.2.0)
+      '@tanstack/react-query-next-experimental':
+        specifier: 5.8.7
+        version: 5.8.7(@tanstack/react-query@5.8.7)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
+      '@trpc/client':
+        specifier: next
+        version: 11.0.0-alpha-next-2023-12-19-12-02-23.122(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122)
+      '@trpc/next':
+        specifier: next
+        version: 11.0.0-alpha-next-2023-12-19-12-02-23.122(@tanstack/react-query@5.8.7)(@trpc/client@11.0.0-alpha-next-2023-12-19-12-02-23.122)(@trpc/react-query@11.0.0-alpha-next-2023-12-19-12-02-23.122)(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0)
+      '@trpc/react-query':
+        specifier: next
+        version: 11.0.0-alpha-next-2023-12-19-12-02-23.122(@tanstack/react-query@5.8.7)(@trpc/client@11.0.0-alpha-next-2023-12-19-12-02-23.122)(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122)(react-dom@18.2.0)(react@18.2.0)
       '@umijs/route-utils':
         specifier: ^2.2.2
         version: 2.2.2
@@ -3231,7 +3264,7 @@ packages:
       '@sinclair/typebox':
         optional: true
     dependencies:
-      elysia: 0.7.30(typescript@5.2.2)
+      elysia: 0.7.30(typescript@4.9.5)
       superjson: 2.2.1
     dev: false
 
@@ -5670,6 +5703,14 @@ packages:
       '@trpc/server': 11.0.0-alpha-next-2023-11-24-13-58-38.113
     dev: false
 
+  /@trpc/client@11.0.0-alpha-next-2023-12-19-12-02-23.122(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122):
+    resolution: {integrity: sha512-DZ0cuKe13rIG8FUovvSgGx9DMEWjb+RSdgVTm97ALUhiySgr3scFmvbrcDWRqqEKv6he7XgIWo4Wu2b8U80/NA==}
+    peerDependencies:
+      '@trpc/server': 11.0.0-alpha-next-2023-12-19-12-02-23.122+5244edb3d
+    dependencies:
+      '@trpc/server': 11.0.0-alpha-next-2023-12-19-12-02-23.122
+    dev: false
+
   /@trpc/next@11.0.0-alpha-next-2023-11-24-13-58-38.113(@tanstack/react-query@5.8.7)(@trpc/client@11.0.0-alpha-next-2023-11-24-13-58-38.113)(@trpc/react-query@11.0.0-alpha-next-2023-11-24-13-58-38.113)(@trpc/server@11.0.0-alpha-next-2023-11-24-13-58-38.113)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-jU1zKvPEiXu40nL3Os5ItvMlmUKhkq6K3UGtrd8Xj53LITw7XkwD9r9+2C8CQmezrE2sAjTya8OO75JR9dCKyg==}
     peerDependencies:
@@ -5685,6 +5726,27 @@ packages:
       '@trpc/client': 11.0.0-alpha-next-2023-11-24-13-58-38.113(@trpc/server@11.0.0-alpha-next-2023-11-24-13-58-38.113)
       '@trpc/react-query': 11.0.0-alpha-next-2023-11-24-13-58-38.113(@tanstack/react-query@5.8.7)(@trpc/client@11.0.0-alpha-next-2023-11-24-13-58-38.113)(@trpc/server@11.0.0-alpha-next-2023-11-24-13-58-38.113)(react-dom@18.2.0)(react@18.2.0)
       '@trpc/server': 11.0.0-alpha-next-2023-11-24-13-58-38.113
+      next: 14.0.3(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-ssr-prepass: 1.5.0(react@18.2.0)
+    dev: false
+
+  /@trpc/next@11.0.0-alpha-next-2023-12-19-12-02-23.122(@tanstack/react-query@5.8.7)(@trpc/client@11.0.0-alpha-next-2023-12-19-12-02-23.122)(@trpc/react-query@11.0.0-alpha-next-2023-12-19-12-02-23.122)(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122)(next@14.0.3)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-4tUIXC1mNUae+Of2mLMIPt9pCCaroeBXe+OAJzY/nThv4Q64H1Y3U2HrzUVdM8LnuD+/laHBsaljevKd2VPRdg==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.0.0
+      '@trpc/client': 11.0.0-alpha-next-2023-12-19-12-02-23.122+5244edb3d
+      '@trpc/react-query': 11.0.0-alpha-next-2023-12-19-12-02-23.122+5244edb3d
+      '@trpc/server': 11.0.0-alpha-next-2023-12-19-12-02-23.122+5244edb3d
+      next: '*'
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@tanstack/react-query': 5.8.7(react-dom@18.2.0)(react@18.2.0)
+      '@trpc/client': 11.0.0-alpha-next-2023-12-19-12-02-23.122(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122)
+      '@trpc/react-query': 11.0.0-alpha-next-2023-12-19-12-02-23.122(@tanstack/react-query@5.8.7)(@trpc/client@11.0.0-alpha-next-2023-12-19-12-02-23.122)(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122)(react-dom@18.2.0)(react@18.2.0)
+      '@trpc/server': 11.0.0-alpha-next-2023-12-19-12-02-23.122
       next: 14.0.3(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -5707,6 +5769,22 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
+  /@trpc/react-query@11.0.0-alpha-next-2023-12-19-12-02-23.122(@tanstack/react-query@5.8.7)(@trpc/client@11.0.0-alpha-next-2023-12-19-12-02-23.122)(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-g+LUJxC/pMSMCz0RTNU2btsPUXSxM4ouVmM+WMXOjrpZx8tC3urr3jhABYDp/slnPpEUvkv2II9OwPSqWkkSTA==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.0.0
+      '@trpc/client': 11.0.0-alpha-next-2023-12-19-12-02-23.122+5244edb3d
+      '@trpc/server': 11.0.0-alpha-next-2023-12-19-12-02-23.122+5244edb3d
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@tanstack/react-query': 5.8.7(react-dom@18.2.0)(react@18.2.0)
+      '@trpc/client': 11.0.0-alpha-next-2023-12-19-12-02-23.122(@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122)
+      '@trpc/server': 11.0.0-alpha-next-2023-12-19-12-02-23.122
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@trpc/server@11.0.0-alpha-next-2023-11-24-13-58-38.113:
     resolution: {integrity: sha512-iRI9hy0T0Ih18W8P9T5SnwYAJTt+fAaETOBY/ZTINpKkk1S/B4QvvSk3zmNEptKJ3jSZGsZkbrfG9Cb524ivug==}
     engines: {node: '>=18.0.0'}
@@ -5714,6 +5792,10 @@ packages:
 
   /@trpc/server@11.0.0-alpha-next-2023-12-15-18-34-32.118:
     resolution: {integrity: sha512-LFyRQaTzYninZ8lfNEIfgRV6M8T4iDxp9NGNuCU8E7Ui6mvYaYAwv4RKwnkc+W2E+Ul2erhSw+GEqv01QJc+8g==}
+
+  /@trpc/server@11.0.0-alpha-next-2023-12-19-12-02-23.122:
+    resolution: {integrity: sha512-fWFi4JlcF4OwT2fsSbbGv+WVNIIvHc2kmPysJpPd/Bm/NWGC/ZyNJ08Di1TQSAU/pnB2WKISSoSbq6uqf/4gVQ==}
+    dev: false
 
   /@trysound/sax@0.2.0:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -10516,6 +10598,27 @@ packages:
     transitivePeerDependencies:
       - '@sinclair/typebox'
       - openapi-types
+    dev: false
+
+  /elysia@0.7.30(typescript@4.9.5):
+    resolution: {integrity: sha512-oDgcAxTi0W9h+WG4tRvW+02joAdduQY1ib6eDeLKbyUyuekkLt74tBz6XTWPbUEApnnVCfn+B9e4oC6B4qQ8Uw==}
+    peerDependencies:
+      '@sinclair/typebox': '>= 0.31.0'
+      openapi-types: '>= 12.0.0'
+      typescript: '>= 5.0.0'
+    peerDependenciesMeta:
+      '@sinclair/typebox':
+        optional: true
+      openapi-types:
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      cookie: 0.6.0
+      eventemitter3: 5.0.1
+      fast-querystring: 1.1.2
+      memoirist: 0.1.4
+      typescript: 4.9.5
     dev: false
 
   /elysia@0.7.30(typescript@5.2.2):

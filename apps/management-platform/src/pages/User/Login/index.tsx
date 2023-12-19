@@ -21,6 +21,8 @@ import { Alert, message, Tabs } from 'antd';
 import Settings from '../../../../config/defaultSettings';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
+import {TRPCReactProvider} from '../../../providers';
+import {api} from '../../../utils/trpc/client';
 
 const ActionIcons = () => {
   const langClassName = useEmotionCss(({ token }) => {
@@ -47,6 +49,9 @@ const ActionIcons = () => {
 };
 
 const Lang = () => {
+  const {data} = api.post.all.useQuery();
+  console.log('== data ===>>>> ', data);
+
   const langClassName = useEmotionCss(({ token }) => {
     return {
       width: 42,
@@ -144,6 +149,7 @@ const Login: React.FC = () => {
   const { status, type: loginType } = userLoginState;
 
   return (
+    <TRPCReactProvider>
     <div className={containerClassName}>
       <Helmet>
         <title>
@@ -365,6 +371,7 @@ const Login: React.FC = () => {
       </div>
       <Footer />
     </div>
+    </TRPCReactProvider>
   );
 };
 
