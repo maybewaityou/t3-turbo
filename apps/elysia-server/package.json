@@ -24,7 +24,7 @@
     "@acme/elysia": "workspace:^0.1.0",
     "@bogeychan/elysia-etag": "^0.0.3",
     "@bogeychan/elysia-logger": "^0.0.13",
-    "@trpc/server": "^10.44.1",
+    "@trpc/server": "next",
     "elysia-decorators": "^0.0.2",
     "elysia-helmet": "^1.0.1",
     "elysia-http-error": "^1.1.2",
