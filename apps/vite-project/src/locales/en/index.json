@@ -1,0 +1,9 @@
+{
+  "translation": {
+    "home.text": "Hello, Home page!",
+    "test.text": "Hello, Test page!"
+  },
+  "common": {
+    "test": "test"
+  }
+}

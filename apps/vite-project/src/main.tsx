@@ -1,16 +1,29 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-import App from "./App";
+import App from '@/app'
+import '@/assets/index.scss'
+import '@/locales'
+import GlobalStyles from '@/styles/GlobalStyles'
+import { TRPCReactProvider } from './providers'
 
-import "./index.css";
+enableMapSet()
 
-import { TRPCReactProvider } from "./providers";
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <GlobalStyles />
     <TRPCReactProvider>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </TRPCReactProvider>
   </React.StrictMode>,
-);
+)
