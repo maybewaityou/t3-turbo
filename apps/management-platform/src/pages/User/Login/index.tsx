@@ -1,7 +1,6 @@
 import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
 import { getFakeCaptcha } from '@/services/ant-design-pro/login';
-import Square from '@/components/Square';
 import {
   AlipayCircleOutlined,
   LockOutlined,
@@ -167,8 +166,6 @@ const Login: React.FC = () => {
             padding: '32px 0',
           }}
         >
-          <Square />
-          <p className="text-xl text-sky-600">Test</p>
           <LoginForm
             contentStyle={{
               minWidth: 280,
