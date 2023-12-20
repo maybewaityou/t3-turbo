@@ -63,7 +63,7 @@ export default defineConfig({
   //============== 以下都是max的插件配置 ===============
   /**
    * @name 数据流插件
-   * @@doc https://umijs.org/docs/max/data-flow
+   * @doc https://umijs.org/docs/max/data-flow
    */
   model: {},
   /**
@@ -152,4 +152,6 @@ export default defineConfig({
     strategy: 'normal',
   },
   requestRecord: {},
-});
+  tailwindcss: {},
+  extraBabelPlugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
+})
