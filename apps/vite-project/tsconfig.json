@@ -1,7 +1,15 @@
 {
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
   "extends": "@acme/tsconfig/base.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json"
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["."],
   "exclude": ["node_modules"]
