@@ -6,10 +6,10 @@
  *
  */
 
-import tw from 'twin.macro'
+import tw from 'twin.macro';
 
 export default tw.div`
   h-20
   w-20
   bg-blue-700
-`
+`;

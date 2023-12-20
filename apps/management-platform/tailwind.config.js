@@ -1,6 +1,6 @@
-import { Config } from "tailwindcss";
+import { Config } from 'tailwindcss';
 
-import baseConfig from "@acme/tailwind-config";
+import baseConfig from '@acme/tailwind-config';
 
 export default {
   corePlugins: {
@@ -8,6 +8,6 @@ export default {
     preflight: false,
     // 而不影响那些依靠添加自己的基本样式来正常工作的 utilities。
   },
-  content: ["./src/**/*.{ts,tsx}"],
+  content: ['./src/**/*.{ts,tsx}'],
   presets: [baseConfig],
 };
