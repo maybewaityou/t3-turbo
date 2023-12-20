@@ -50,6 +50,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true }
     ],
+    'prettier/prettier': 'off',
     'no-console': 'off',
     'no-debugger': 'off',
     'no-unused-vars': 'off',
