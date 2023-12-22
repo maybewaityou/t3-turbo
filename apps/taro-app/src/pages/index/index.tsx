@@ -9,7 +9,7 @@ function Index() {
   })
 
   const { data } = api.health.status.useQuery()
-  // console.log('data', data)
+  console.log('data', data)
 
   return (
     <View className="index">

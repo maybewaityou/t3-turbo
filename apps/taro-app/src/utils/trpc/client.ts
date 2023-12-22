@@ -31,15 +31,8 @@ export const api = createTRPCNext<AppRouter>({
           return new Promise((resolve, reject) => {
             Taro.request({
               url: `${input}`,
-              success: (res) => {
-                console.log('res', res)
-                resolve(res)
-              },
-              fail: (error) => {
-                console.log('error', error)
-
-                reject(error)
-              },
+              success: resolve,
+              fail: reject,
             })
           }) as any
         },
