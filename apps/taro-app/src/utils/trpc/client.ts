@@ -7,6 +7,7 @@
  */
 import { AbortControllerExt } from '@/extensions/AbortController'
 import type { AppRouter } from '@acme/api'
+import Taro from '@tarojs/taro'
 import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client'
 import { createTRPCNext } from '@trpc/next'
 import superjson from 'superjson'
@@ -27,7 +28,7 @@ export const api = createTRPCNext<AppRouter>({
         fetch: (input) => {
           console.log('input', input)
 
-          return Promise.resolve(input as any)
+          return Taro.request({ url: `${input}` }) as any
         },
         headers() {
           const headers = new Map()
@@ -42,5 +43,5 @@ export const api = createTRPCNext<AppRouter>({
 export { type RouterInputs, type RouterOutputs } from '@acme/api'
 
 export const getBaseUrl = () => {
-  return `http://localhost:8080`
+  return `http://127.0.0.1:8080`
 }
