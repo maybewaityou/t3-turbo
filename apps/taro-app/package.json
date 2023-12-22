@@ -64,8 +64,10 @@
     "@trpc/client": "next",
     "@trpc/next": "next",
     "@trpc/react-query": "next",
+    "immer": "^10.0.2",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "zustand": "^4.3.9"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:^0.2.0",
