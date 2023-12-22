@@ -1,6 +1,8 @@
+import { queryMatch } from '@/extensions/query'
 import { api } from '@/utils/trpc/client'
-import { queryMatch } from '@acme/tanstack'
-import { Text, View } from '@tarojs/components'
+import { UseQueryResult } from '@tanstack/react-query'
+// import { queryMatch } from '@acme/tanstack'
+import { View } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
 import './index.scss'
 
@@ -10,24 +12,34 @@ export default function Index() {
   })
 
   const statusResult = api.health.status.useQuery()
-  queryMatch<{ status: string }>(
-    statusResult,
-    () => <></>,
-    (err) => <View>Failed to load {err.message}</View>,
-    (data) => <>{JSON.stringify(data)}</>,
-  )
-
   const postResult = api.post.all.useQuery()
-  queryMatch(
-    postResult,
-    () => <></>,
-    (err) => <View>Failed to load {err.message}</View>,
-    (data) => <>{JSON.stringify(data)}</>,
-  )
 
   return (
     <View className="index">
-      <Text>Hello world!</Text>
+      {queryMatch(
+        statusResult as UseQueryResult,
+        () => (
+          <></>
+        ),
+        (err) => (
+          <View>Failed to load {err.message}</View>
+        ),
+        (data) => (
+          <>{JSON.stringify(data)}</>
+        ),
+      )}
+      {queryMatch(
+        postResult as UseQueryResult,
+        () => (
+          <></>
+        ),
+        (err) => (
+          <View>Failed to load {err.message}</View>
+        ),
+        (data) => (
+          <>{JSON.stringify(data)}</>
+        ),
+      )}
     </View>
   )
 }
