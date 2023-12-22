@@ -5,11 +5,11 @@
  * description:
  *
  */
+import { AbortControllerExt } from '@/extensions/AbortController'
 import type { AppRouter } from '@acme/api'
 import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client'
 import { createTRPCNext } from '@trpc/next'
 import superjson from 'superjson'
-import { AbortControllerExt } from '../../extensions/AbortController'
 
 global.AbortController = AbortControllerExt as any
 
@@ -27,7 +27,6 @@ export const api = createTRPCNext<AppRouter>({
         fetch: (input) => {
           return Promise.resolve(input as any)
         },
-        // AbortController: AbortControllerExt as any,
         headers() {
           const headers = new Map()
           headers.set('x-trpc-source', 'taro-react')
