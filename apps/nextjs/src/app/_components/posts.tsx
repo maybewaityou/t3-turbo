@@ -10,8 +10,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import type { RouterOutputs } from "~/utils/client";
-import { api } from "~/utils/client";
+import type { RouterOutputs } from "~/utils/trpc/client";
+import { api } from "~/utils/trpc/client";
 
 export function CreatePostForm() {
   const context = api.useUtils();

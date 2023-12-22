@@ -16,7 +16,7 @@ import {
 export const postRouter = createTRPCRouter({
   hello: publicProcedure.input(helloInput).query(({ input }) => {
     return {
-      greeting: `Hello ${input.text}`,
+      greeting: `Hello ${input}`,
     };
   }),
   all: publicProcedure.query(({ ctx }) => {

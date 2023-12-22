@@ -6,4 +6,4 @@
  *
  */
 
-export * from "../tanstack/src/query";
+export * from "./src/query";
