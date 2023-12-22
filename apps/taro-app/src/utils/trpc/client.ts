@@ -28,7 +28,20 @@ export const api = createTRPCNext<AppRouter>({
         fetch: (input) => {
           console.log('input', input)
 
-          return Taro.request({ url: `${input}` }) as any
+          return new Promise((resolve, reject) => {
+            Taro.request({
+              url: `${input}`,
+              success: (res) => {
+                console.log('res', res)
+                resolve(res)
+              },
+              fail: (error) => {
+                console.log('error', error)
+
+                reject(error)
+              },
+            })
+          }) as any
         },
         headers() {
           const headers = new Map()
