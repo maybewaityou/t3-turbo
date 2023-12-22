@@ -6,6 +6,7 @@
  *
  */
 import Taro from '@tarojs/taro'
+import { TRPCClientError } from '@trpc/client'
 import { ResponseExt } from './ResponseExt'
 
 export function fetchExt(input) {
@@ -15,7 +16,9 @@ export function fetchExt(input) {
       success: (res) => {
         resolve(new ResponseExt(res))
       },
-      fail: reject,
+      fail: (err) => {
+        reject(new TRPCClientError(err.errMsg))
+      },
     }),
   ) as Promise<any>
 }

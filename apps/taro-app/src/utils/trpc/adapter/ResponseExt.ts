@@ -8,7 +8,7 @@
 
 export class ResponseExt {
   body: any
-  public constructor(body: any) {
+  public constructor(body?: any) {
     this.body = body
   }
 
