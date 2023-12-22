@@ -9,7 +9,7 @@ import Taro from '@tarojs/taro'
 import { TRPCClientError } from '@trpc/client'
 import { ResponseExt } from './ResponseExt'
 
-export function fetchExt(input) {
+export function fetchExt(input: RequestInfo | URL | string) {
   return new Promise((resolve, reject) =>
     Taro.request({
       url: `${input}`,
