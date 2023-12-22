@@ -13,7 +13,6 @@ export default function Index() {
 
   const statusResult = api.health.status.useQuery()
   const postResult = api.post.all.useQuery()
-
   return (
     <View className="index">
       {queryMatch(

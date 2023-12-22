@@ -6,11 +6,11 @@
  *
  */
 import type { AppRouter } from '@acme/api'
+import { AbortControllerExt, fetchTaroAdapter } from '@acme/trpc-taro'
+import Taro from '@tarojs/taro'
 import { httpBatchLink, loggerLink } from '@trpc/client'
 import { createTRPCNext } from '@trpc/next'
 import superjson from 'superjson'
-import { AbortControllerExt } from './adapter/AbortControllerExt'
-import { fetchExt } from './adapter/FetchExt'
 
 global.AbortController = AbortControllerExt as any
 
@@ -25,7 +25,7 @@ export const api = createTRPCNext<AppRouter>({
       }),
       httpBatchLink({
         url: `${getBaseUrl()}/api/trpc`,
-        fetch: fetchExt,
+        fetch: (input) => fetchTaroAdapter(input)(Taro.request),
         headers() {
           const headers = new Map()
           headers.set('x-trpc-source', 'taro-react')

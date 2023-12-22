@@ -7,12 +7,12 @@
  */
 
 export class ResponseExt {
-  body: any
+  body: any;
   public constructor(body?: any) {
-    this.body = body
+    this.body = body;
   }
 
   public async json() {
-    return this.body.data
+    return this.body.data;
   }
 }
