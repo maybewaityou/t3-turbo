@@ -25,6 +25,8 @@ export const api = createTRPCNext<AppRouter>({
       unstable_httpBatchStreamLink({
         url: `${getBaseUrl()}/api/trpc`,
         fetch: (input) => {
+          console.log('input', input)
+
           return Promise.resolve(input as any)
         },
         headers() {
