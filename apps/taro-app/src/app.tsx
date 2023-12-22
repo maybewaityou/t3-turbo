@@ -1,3 +1,4 @@
+import { api } from '@/utils/trpc/client'
 import { useLaunch } from '@tarojs/taro'
 import { PropsWithChildren } from 'react'
 import './app.scss'
@@ -11,4 +12,4 @@ function App({ children }: PropsWithChildren<any>) {
   return children
 }
 
-export default App
+export default api.withTRPC(App)

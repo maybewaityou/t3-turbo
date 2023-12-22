@@ -3,7 +3,7 @@ import { Text, View } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
 import './index.scss'
 
-function Index() {
+export default function Index() {
   useLoad(() => {
     console.log('Page loaded.')
   })
@@ -20,5 +20,3 @@ function Index() {
     </View>
   )
 }
-
-export default api.withTRPC(Index)
