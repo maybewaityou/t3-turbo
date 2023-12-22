@@ -11,6 +11,9 @@ function Index() {
   const { data } = api.health.status.useQuery()
   console.log('data', data)
 
+  const { data: posts } = api.post.all.useQuery()
+  console.log(posts)
+
   return (
     <View className="index">
       <Text>Hello world!</Text>

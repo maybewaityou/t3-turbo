@@ -63,7 +63,6 @@
     "@trpc/next": "next",
     "@trpc/react-query": "next",
     "node-abort-controller": "^3.1.1",
-    "node-fetch": "^3.3.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
