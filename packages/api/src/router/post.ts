@@ -5,6 +5,8 @@
  * description:
  *
  */
+import { z } from "zod";
+
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import {
   createPostInput,
@@ -19,6 +21,12 @@ export const postRouter = createTRPCRouter({
       greeting: `Hello ${input}`,
     };
   }),
+  test: publicProcedure
+    .input(z.object({ text: z.string() }))
+    .mutation(({ ctx, input }) => {
+      // throw new Error("something error");
+      return `response:${JSON.stringify(input)}`;
+    }),
   all: publicProcedure.query(({ ctx }) => {
     return ctx.db.post.findMany({ orderBy: { id: "desc" } });
   }),

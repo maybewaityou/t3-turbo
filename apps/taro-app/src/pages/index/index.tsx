@@ -2,7 +2,7 @@ import { queryMatch } from '@/extensions/query'
 import { api } from '@/utils/trpc/client'
 // import { queryMatch } from '@acme/tanstack'
 import { UseQueryResult } from '@tanstack/react-query'
-import { View } from '@tarojs/components'
+import { Button, View } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
 
 export default function Index() {
@@ -12,8 +12,18 @@ export default function Index() {
 
   const statusResult = api.health.status.useQuery()
   const postResult = api.post.all.useQuery()
+  const { mutateAsync } = api.post.test.useMutation()
+  async function handleClick() {
+    try {
+      const result = await mutateAsync({ text: 'hello' })
+      console.log(result)
+    } catch (error) {
+      console.log('error', error.message)
+    }
+  }
   return (
     <View className="index">
+      <Button onClick={handleClick}>button</Button>
       {queryMatch(
         statusResult as UseQueryResult,
         () => (
