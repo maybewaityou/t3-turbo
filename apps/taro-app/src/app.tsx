@@ -1,6 +1,7 @@
 import { api } from '@/utils/trpc/client'
 import { useLaunch } from '@tarojs/taro'
 import { PropsWithChildren } from 'react'
+import 'windi.css'
 import './app.scss'
 
 function App({ children }: PropsWithChildren<any>) {

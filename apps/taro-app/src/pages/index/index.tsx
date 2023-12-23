@@ -20,7 +20,8 @@ export default function Index() {
   }
 
   return (
-    <View className="index">
+    <View className="flex flex-col items-center">
+      <Text className="text-3xl">Hello World</Text>
       <Button onClick={handleClick}>button</Button>
       {queryMatch(
         statusResult,

@@ -61,7 +61,7 @@ importers:
         version: 1.0.4(antd@5.12.5)(react-dom@18.2.0)(react@18.2.0)
       '@elysiajs/eden':
         specifier: ^0.7.7
-        version: 0.7.7(elysia@0.7.30)
+        version: 0.7.7(elysia@0.8.0)
       '@tanstack/react-query':
         specifier: ^5.8.7
         version: 5.14.2(react@18.2.0)
@@ -273,19 +273,19 @@ importers:
         version: link:../../packages/elysia
       '@bogeychan/elysia-etag':
         specifier: ^0.0.3
-        version: 0.0.3(elysia@0.7.30)
+        version: 0.0.3(elysia@0.8.0)
       '@bogeychan/elysia-logger':
         specifier: ^0.0.13
-        version: 0.0.13(elysia@0.7.30)
+        version: 0.0.13(elysia@0.8.0)
       '@trpc/server':
         specifier: next
         version: 11.0.0-alpha-next-2023-12-19-17-06-13.125
       elysia-decorators:
         specifier: ^0.0.2
-        version: 0.0.2(elysia@0.7.30)
+        version: 0.0.2(elysia@0.8.0)
       elysia-helmet:
         specifier: ^1.0.1
-        version: 1.0.1(elysia@0.7.30)
+        version: 1.0.1(elysia@0.8.0)
       elysia-http-error:
         specifier: ^1.1.2
         version: 1.1.2(typescript@5.3.3)
@@ -645,7 +645,7 @@ importers:
         version: 1.18.1(react-dom@18.2.0)(react@18.2.0)
       '@elysiajs/eden':
         specifier: ^0.7.7
-        version: 0.7.7(elysia@0.7.30)
+        version: 0.7.7(elysia@0.8.0)
       '@t3-oss/env-nextjs':
         specifier: ^0.7.1
         version: 0.7.1(typescript@5.3.3)(zod@3.22.4)
@@ -840,6 +840,9 @@ importers:
       '@babel/core':
         specifier: ^7.8.0
         version: 7.23.6
+      '@dcasia/mini-program-tailwind-webpack-plugin':
+        specifier: ^1.5.7
+        version: 1.5.7
       '@pmmmwh/react-refresh-webpack-plugin':
         specifier: ^0.5.5
         version: 0.5.11(react-refresh@0.11.0)(webpack@5.78.0)
@@ -1080,31 +1083,31 @@ importers:
         version: link:../api
       '@bogeychan/elysia-etag':
         specifier: ^0.0.3
-        version: 0.0.3(elysia@0.7.30)
+        version: 0.0.3(elysia@0.8.0)
       '@bogeychan/elysia-logger':
         specifier: ^0.0.13
-        version: 0.0.13(elysia@0.7.30)
+        version: 0.0.13(elysia@0.8.0)
       '@elysiajs/cookie':
         specifier: ^0.7.0
-        version: 0.7.0(elysia@0.7.30)
+        version: 0.7.0(elysia@0.8.0)
       '@elysiajs/cors':
         specifier: ^0.7.2
-        version: 0.7.2(elysia@0.7.30)
+        version: 0.7.2(elysia@0.8.0)
       '@elysiajs/jwt':
         specifier: ^0.7.1
-        version: 0.7.1(elysia@0.7.30)
+        version: 0.7.1(elysia@0.8.0)
       '@elysiajs/stream':
         specifier: ^0.7.2
-        version: 0.7.2(elysia@0.7.30)
+        version: 0.7.2(elysia@0.8.0)
       '@elysiajs/swagger':
         specifier: ^0.7.4
-        version: 0.7.4(elysia@0.7.30)
+        version: 0.7.4(elysia@0.8.0)
       '@elysiajs/trpc':
         specifier: ^0.7.0
-        version: 0.7.0(elysia@0.7.30)
+        version: 0.7.0(elysia@0.8.0)
       '@elysiajs/websocket':
         specifier: ^0.2.8
-        version: 0.2.8(elysia@0.7.30)
+        version: 0.2.8(elysia@0.8.0)
     devDependencies:
       '@acme/eslint-config':
         specifier: workspace:^0.2.0
@@ -3563,20 +3566,20 @@ packages:
     resolution: {integrity: sha512-h0OYmPR3A5Dfbetra/GzxBAzQk8sH7LhRkRUTdagX6nrtlUgJGYCTv4bBK33jsTQw9HDd8PE2x1Ma+iRKEDUsw==, tarball: https://registry.npmmirror.com/@bloomberg/record-tuple-polyfill/-/record-tuple-polyfill-0.0.4.tgz}
     dev: true
 
-  /@bogeychan/elysia-etag@0.0.3(elysia@0.7.30):
+  /@bogeychan/elysia-etag@0.0.3(elysia@0.8.0):
     resolution: {integrity: sha512-eP2enUKkTwEqAsOEq8uDrnq7/oQWVqMPiEE17Za8G33Dz21eta9GXS18sVfdhHhoETDBnf8vvRvgZQOVi6Rt7A==, tarball: https://registry.npmmirror.com/@bogeychan/elysia-etag/-/elysia-etag-0.0.3.tgz}
     peerDependencies:
       elysia: '>= 0.7.15'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
     dev: false
 
-  /@bogeychan/elysia-logger@0.0.13(elysia@0.7.30):
+  /@bogeychan/elysia-logger@0.0.13(elysia@0.8.0):
     resolution: {integrity: sha512-j3Fllw6nRs6Xzi8bT0E0WfVb+Q2oKKfz1ATUfb5qHREy+qqJmdCm+WIUNnadv+bwzxq/oWAOOSR1A840cbBH1A==, tarball: https://registry.npmmirror.com/@bogeychan/elysia-logger/-/elysia-logger-0.0.13.tgz}
     peerDependencies:
       elysia: '>= 0.7.6'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
       pino: 8.17.1
     dev: false
 
@@ -3959,6 +3962,19 @@ packages:
       - supports-color
     dev: true
 
+  /@dcasia/mini-program-tailwind-webpack-plugin@1.5.7:
+    resolution: {integrity: sha512-BXcYi8iAFh9qRewsJPT9+paxBto5zdLLmad1Yx1GkZXmKFE6W7qHDRWxOmskXFtSCzCKdomFqZG2RzW1eBzMZg==, tarball: https://registry.npmmirror.com/@dcasia/mini-program-tailwind-webpack-plugin/-/mini-program-tailwind-webpack-plugin-1.5.7.tgz}
+    dependencies:
+      '@babel/core': 7.23.6
+      '@vivaxy/wxml': 2.1.0
+      micromatch: 4.0.5
+      postcss: 8.4.32
+      webpack-sources: 1.4.3
+      windicss-webpack-plugin: 1.8.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@devexpress/error-stack-parser@2.0.6:
     resolution: {integrity: sha512-fneVypElGUH6Be39mlRZeAu00pccTlf4oVuzf9xPJD1cdEqI8NyAiQua/EW7lZdrbMUbgyXcJmfKPefhYius3A==, tarball: https://registry.npmmirror.com/@devexpress/error-stack-parser/-/error-stack-parser-2.0.6.tgz}
     dependencies:
@@ -4015,7 +4031,7 @@ packages:
       react: 18.2.0
       tslib: 2.6.2
 
-  /@elysiajs/cookie@0.7.0(elysia@0.7.30):
+  /@elysiajs/cookie@0.7.0(elysia@0.8.0):
     resolution: {integrity: sha512-GCDjClpaOYLSaugLc3HLS5kAhghpubJfvkFn9ZIsgQzkpUk4vJLLVUFbPm5FrqgUo71VaQAAGKJm5OhRRWQT+w==, tarball: https://registry.npmmirror.com/@elysiajs/cookie/-/cookie-0.7.0.tgz}
     peerDependencies:
       elysia: '>= 0.7.0'
@@ -4024,18 +4040,18 @@ packages:
       '@types/cookie-signature': 1.1.2
       cookie: 0.5.0
       cookie-signature: 1.2.1
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
     dev: false
 
-  /@elysiajs/cors@0.7.2(elysia@0.7.30):
+  /@elysiajs/cors@0.7.2(elysia@0.8.0):
     resolution: {integrity: sha512-H5JCDv2rtf1N89ry6VYTNNIOvUspWDgALRyP0aodWuMzMFvqeTJ3y1dUmL+O9cB59WDX3Nr6oJMl527W7f8gdg==, tarball: https://registry.npmmirror.com/@elysiajs/cors/-/cors-0.7.2.tgz}
     peerDependencies:
       elysia: '>= 0.7.0'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
     dev: false
 
-  /@elysiajs/eden@0.7.7(elysia@0.7.30):
+  /@elysiajs/eden@0.7.7(elysia@0.8.0):
     resolution: {integrity: sha512-T7bF5pzOa8L5plTOyCEvy2yGzOAXUwe1v06d3m1SKLGZYYeSqzjwIC4Bnph9N4n1aA+aIC+DtRBbP/EdELR0zg==, tarball: https://registry.npmmirror.com/@elysiajs/eden/-/eden-0.7.7.tgz}
     peerDependencies:
       '@sinclair/typebox': '*'
@@ -4044,54 +4060,54 @@ packages:
       '@sinclair/typebox':
         optional: true
     dependencies:
-      elysia: 0.7.30(typescript@4.9.5)
+      elysia: 0.8.0(typescript@4.9.5)
       superjson: 2.2.1
     dev: false
 
-  /@elysiajs/jwt@0.7.1(elysia@0.7.30):
+  /@elysiajs/jwt@0.7.1(elysia@0.8.0):
     resolution: {integrity: sha512-UgZbIqARXpNaK27e1boFtdyHnsNfckD6QbG2dHPH6LIXzDUXaE7zwHA8H5R8BeFuHZ//AwTW9GA4soj0kiPdHQ==, tarball: https://registry.npmmirror.com/@elysiajs/jwt/-/jwt-0.7.1.tgz}
     peerDependencies:
       elysia: '>= 0.7.20'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
       jose: 4.15.4
     dev: false
 
-  /@elysiajs/stream@0.7.2(elysia@0.7.30):
+  /@elysiajs/stream@0.7.2(elysia@0.8.0):
     resolution: {integrity: sha512-mHdpGKVpDvJt161+Da1JUUkMtMZ9sL/l2768Bu1EgUAVBLapgK6KVj3T110vVRy7sMR6OXz66eooTY2yqLILlw==, tarball: https://registry.npmmirror.com/@elysiajs/stream/-/stream-0.7.2.tgz}
     peerDependencies:
       elysia: '>= 0.7.20'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
       nanoid: 5.0.4
     dev: false
 
-  /@elysiajs/swagger@0.7.4(elysia@0.7.30):
+  /@elysiajs/swagger@0.7.4(elysia@0.8.0):
     resolution: {integrity: sha512-dTZ2ucf9cBgol8X8ekq7dVJ7agw1bvB4ICMpOf7lihfIA8Te3Z0FpXPuGkog27qUKJC8LF5xLxcGwJtAFiVeSg==, tarball: https://registry.npmmirror.com/@elysiajs/swagger/-/swagger-0.7.4.tgz}
     peerDependencies:
       elysia: '>= 0.7.0'
     dependencies:
       '@types/lodash.clonedeep': 4.5.9
       '@types/swagger-ui': 3.52.4
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
       lodash.clonedeep: 4.5.0
       openapi-types: 12.1.3
     dev: false
 
-  /@elysiajs/trpc@0.7.0(elysia@0.7.30):
+  /@elysiajs/trpc@0.7.0(elysia@0.8.0):
     resolution: {integrity: sha512-XwKWMB0gJ3wr4Cek/i550y+96Yhi29m0Lfoi6km35prO2wfJiHD0U7PYgsajbxi16AhYtsnmNHyHT+vCwD4VQA==, tarball: https://registry.npmmirror.com/@elysiajs/trpc/-/trpc-0.7.0.tgz}
     peerDependencies:
       elysia: '>= 0.7.0'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
     dev: false
 
-  /@elysiajs/websocket@0.2.8(elysia@0.7.30):
+  /@elysiajs/websocket@0.2.8(elysia@0.8.0):
     resolution: {integrity: sha512-K9KLmYL1SYuAV353GvmK0V9DG5w7XTOGsa1H1dGB5BUTzvBaMvnwNeqnJQ3cjf9V1c0EjQds0Ty4LfUFvV45jw==, tarball: https://registry.npmmirror.com/@elysiajs/websocket/-/websocket-0.2.8.tgz}
     peerDependencies:
       elysia: '>= 0.2.2'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
       nanoid: 4.0.2
       raikiri: 0.0.0-beta.8
     dev: false
@@ -10149,6 +10165,10 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
+  /@vivaxy/wxml@2.1.0:
+    resolution: {integrity: sha512-xqnfAB58tl5SPyfkQjrn7D7nuvq7XV9um7QUsjCrvA4X6aZBxcau9sAM47LsQTOpJIVPzjaKIMvq3ul07yZlOA==, tarball: https://registry.npmmirror.com/@vivaxy/wxml/-/wxml-2.1.0.tgz}
+    dev: true
+
   /@vue/compiler-core@3.3.13:
     resolution: {integrity: sha512-bwi9HShGu7uaZLOErZgsH2+ojsEdsjerbf2cMXPwmvcgZfVPZ2BVZzCVnwZBxTAYd6Mzbmf6izcUNDkWnBBQ6A==, tarball: https://registry.npmmirror.com/@vue/compiler-core/-/compiler-core-3.3.13.tgz}
     dependencies:
@@ -10360,6 +10380,30 @@ packages:
     dependencies:
       '@webassemblyjs/ast': 1.11.1
       '@xtuc/long': 4.2.2
+
+  /@windicss/config@1.9.2:
+    resolution: {integrity: sha512-5yOaarc7Yce08i3NCNRNMUb/tfmVcFo801UwgM27/dXWWfG30wuPONms8VrQurPZlcZTayPKX0svOx0doWdnPQ==, tarball: https://registry.npmmirror.com/@windicss/config/-/config-1.9.2.tgz}
+    dependencies:
+      debug: 4.3.4(supports-color@8.1.1)
+      jiti: 1.21.0
+      windicss: 3.5.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@windicss/plugin-utils@1.9.2:
+    resolution: {integrity: sha512-P019ZVYJSBVzMBhYSzcMIWpMjZZWEynF4s7oXgP9+5msH4/Ek55erFXY6r+e3sysBFohnIr3hosQ5dp9FMG16Q==, tarball: https://registry.npmmirror.com/@windicss/plugin-utils/-/plugin-utils-1.9.2.tgz}
+    dependencies:
+      '@antfu/utils': 0.7.7
+      '@windicss/config': 1.9.2
+      debug: 4.3.4(supports-color@8.1.1)
+      fast-glob: 3.3.2
+      magic-string: 0.30.5
+      micromatch: 4.0.5
+      windicss: 3.5.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@xtuc/ieee754@1.2.0:
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==, tarball: https://registry.npmmirror.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz}
@@ -14402,21 +14446,21 @@ packages:
       minimalistic-crypto-utils: 1.0.1
     dev: true
 
-  /elysia-decorators@0.0.2(elysia@0.7.30):
+  /elysia-decorators@0.0.2(elysia@0.8.0):
     resolution: {integrity: sha512-dYQ2eoiR3FC2ayhpnmGRIugfJGz3KXMIZ9a2hylkGTL/csZfp05mnaUYGQw1sI+QwrPGLhRs6fOhcWiRijBgAg==, tarball: https://registry.npmmirror.com/elysia-decorators/-/elysia-decorators-0.0.2.tgz}
     peerDependencies:
       elysia: '>= 0.2.0'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
       reflect-metadata: 0.1.14
     dev: false
 
-  /elysia-helmet@1.0.1(elysia@0.7.30):
+  /elysia-helmet@1.0.1(elysia@0.8.0):
     resolution: {integrity: sha512-ng5yiQkU2RSKJCZx7YcaPAE1QCas/dkMI2MGcn/atxUzy425PftdhYXVAz18HTbGaNN8dZCk7DB5Z3zXdCwt9A==, tarball: https://registry.npmmirror.com/elysia-helmet/-/elysia-helmet-1.0.1.tgz}
     peerDependencies:
       elysia: '>= 0.2.0'
     dependencies:
-      elysia: 0.7.30(typescript@5.3.3)
+      elysia: 0.8.0(typescript@5.3.3)
     dev: false
 
   /elysia-http-error@1.1.2(typescript@5.3.3):
@@ -14431,8 +14475,8 @@ packages:
       - openapi-types
     dev: false
 
-  /elysia@0.7.30(typescript@4.9.5):
-    resolution: {integrity: sha512-oDgcAxTi0W9h+WG4tRvW+02joAdduQY1ib6eDeLKbyUyuekkLt74tBz6XTWPbUEApnnVCfn+B9e4oC6B4qQ8Uw==, tarball: https://registry.npmmirror.com/elysia/-/elysia-0.7.30.tgz}
+  /elysia@0.8.0(typescript@4.9.5):
+    resolution: {integrity: sha512-adEWjxBFaiFCqDuZEWN28TyvOcRxgguAYaBtwagolF+8XdGqG49ox3HRPZNFr+HURpgfo8rOKjS+Okw1AhyZUw==, tarball: https://registry.npmmirror.com/elysia/-/elysia-0.8.0.tgz}
     peerDependencies:
       '@sinclair/typebox': '>= 0.31.0'
       openapi-types: '>= 12.0.0'
@@ -14447,30 +14491,10 @@ packages:
     dependencies:
       cookie: 0.6.0
       eventemitter3: 5.0.1
+      fast-decode-uri-component: 1.0.1
       fast-querystring: 1.1.2
       memoirist: 0.1.4
       typescript: 4.9.5
-    dev: false
-
-  /elysia@0.7.30(typescript@5.3.3):
-    resolution: {integrity: sha512-oDgcAxTi0W9h+WG4tRvW+02joAdduQY1ib6eDeLKbyUyuekkLt74tBz6XTWPbUEApnnVCfn+B9e4oC6B4qQ8Uw==, tarball: https://registry.npmmirror.com/elysia/-/elysia-0.7.30.tgz}
-    peerDependencies:
-      '@sinclair/typebox': '>= 0.31.0'
-      openapi-types: '>= 12.0.0'
-      typescript: '>= 5.0.0'
-    peerDependenciesMeta:
-      '@sinclair/typebox':
-        optional: true
-      openapi-types:
-        optional: true
-      typescript:
-        optional: true
-    dependencies:
-      cookie: 0.6.0
-      eventemitter3: 5.0.1
-      fast-querystring: 1.1.2
-      memoirist: 0.1.4
-      typescript: 5.3.3
     dev: false
 
   /elysia@0.8.0(typescript@5.3.3):
@@ -16786,6 +16810,11 @@ packages:
 
   /get-port-please@3.1.1:
     resolution: {integrity: sha512-3UBAyM3u4ZBVYDsxOQfJDxEa6XTbpBDrOjp4mf7ExFRt5BKs/QywQQiJsh2B+hxcZLSapWqCRvElUe8DnKcFHA==, tarball: https://registry.npmmirror.com/get-port-please/-/get-port-please-3.1.1.tgz}
+    dev: true
+
+  /get-port@6.1.2:
+    resolution: {integrity: sha512-BrGGraKm2uPqurfGVj/z97/zv8dPleC6x9JBNRTrDNtCkkRF4rPwrQXFgL7+I+q8QSdU4ntLQX2D7KIxSy8nGw==, tarball: https://registry.npmmirror.com/get-port/-/get-port-6.1.2.tgz}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: true
 
   /get-proxy@2.1.0:
@@ -30672,6 +30701,13 @@ packages:
     dependencies:
       lodash: 4.17.21
 
+  /webpack-sources@1.4.3:
+    resolution: {integrity: sha512-lgTS3Xhv1lCOKo7SA5TjKXMjpSM4sBjNV5+q2bqesbSPs5FjGmU6jjtBSkX9b4qW87vDIsCIlUPOEhbZrMdjeQ==, tarball: https://registry.npmmirror.com/webpack-sources/-/webpack-sources-1.4.3.tgz}
+    dependencies:
+      source-list-map: 2.0.1
+      source-map: 0.6.1
+    dev: true
+
   /webpack-sources@2.3.1:
     resolution: {integrity: sha512-y9EI9AO42JjEcrTJFOYmVywVZdKVUfOvDUPsJea5GIr1JOEGFVqwlY2K098fFoIjOkDzHn2AjRvM8dsBZu+gCA==, tarball: https://registry.npmmirror.com/webpack-sources/-/webpack-sources-2.3.1.tgz}
     engines: {node: '>=10.13.0'}
@@ -30931,6 +30967,27 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       string-width: 4.2.3
+    dev: true
+
+  /windicss-webpack-plugin@1.8.0:
+    resolution: {integrity: sha512-zCzNLJ4hjgl5A2+mq8XlPtbvM5RONNz/ol93YG9tcMSn+aH/6Ll/lA5UDnVJluBr8b2Ch5C/GIqXcIMGG8mmdA==, tarball: https://registry.npmmirror.com/windicss-webpack-plugin/-/windicss-webpack-plugin-1.8.0.tgz}
+    dependencies:
+      '@windicss/plugin-utils': 1.9.2
+      debug: 4.3.4(supports-color@8.1.1)
+      get-port: 6.1.2
+      loader-utils: 2.0.4
+      lodash: 4.17.21
+      pathe: 1.1.1
+      webpack-virtual-modules: 0.5.0
+      windicss: 3.5.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /windicss@3.5.6:
+    resolution: {integrity: sha512-P1mzPEjgFMZLX0ZqfFht4fhV/FX8DTG7ERG1fBLiWvd34pTLVReS5CVsewKn9PApSgXnVfPWwvq+qUsRwpnwFA==, tarball: https://registry.npmmirror.com/windicss/-/windicss-3.5.6.tgz}
+    engines: {node: '>= 12'}
+    hasBin: true
     dev: true
 
   /wordwrap@1.0.0:

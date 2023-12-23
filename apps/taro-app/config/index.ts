@@ -24,7 +24,14 @@ export default defineConfig(async (merge, { command, mode }) => {
     },
     sourceRoot: 'src',
     outputRoot: 'dist',
-    plugins: [],
+    plugins: [
+      [
+        '@dcasia/mini-program-tailwind-webpack-plugin/dist/taro',
+        {
+          // ...options
+        },
+      ],
+    ],
     defineConstants: {},
     copy: {
       patterns: [],

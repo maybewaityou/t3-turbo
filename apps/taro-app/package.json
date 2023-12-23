@@ -75,6 +75,7 @@
     "@acme/tailwind-config": "workspace:^0.1.0",
     "@acme/tsconfig": "workspace:^0.1.0",
     "@babel/core": "^7.8.0",
+    "@dcasia/mini-program-tailwind-webpack-plugin": "^1.5.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@tarojs/cli": "3.6.21",
     "@tarojs/taro-loader": "3.6.21",
