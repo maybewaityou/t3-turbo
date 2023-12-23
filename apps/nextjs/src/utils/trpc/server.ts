@@ -49,6 +49,11 @@ function httpLink(): any {
     return httpBatchLink({
       url: `${getBaseUrl()}/api/trpc`,
       fetch: (input, options) => fetch(input, options),
+      headers() {
+        const headers = new Map();
+        headers.set("x-trpc-source", "rsc");
+        return Object.fromEntries(headers);
+      },
     });
 
   /**
