@@ -39,9 +39,14 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
         }),
         unstable_httpBatchStreamLink({
           url: `${getBaseUrl()}/api/trpc`,
+          fetch: (input, options) =>
+            fetch(input, {
+              ...options,
+              header: options?.headers,
+            } as any),
           headers() {
             const headers = new Map(props.headers)
-            headers.set('x-trpc-source', 'nextjs-react')
+            headers.set('x-trpc-source', 'h5-react')
             return Object.fromEntries(headers)
           },
         }),

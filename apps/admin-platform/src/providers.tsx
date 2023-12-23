@@ -37,6 +37,11 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
         }),
         unstable_httpBatchStreamLink({
           url: `${getBaseUrl()}/api/trpc`,
+          fetch: (input, options) =>
+            fetch(input, {
+              ...options,
+              header: options?.headers,
+            } as any),
           headers() {
             const headers = new Map();
             headers.set('x-trpc-source', 'antd-pro');
