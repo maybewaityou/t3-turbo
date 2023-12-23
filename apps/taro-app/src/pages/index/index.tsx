@@ -1,5 +1,5 @@
 import { api } from '@/utils/trpc/client'
-import { Button, View } from '@tarojs/components'
+import { Button, Text, View } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
 
 export default function Index() {
@@ -12,7 +12,11 @@ export default function Index() {
   const { mutateAsync } = api.post.test.useMutation()
   async function handleClick() {
     const result = await toE(mutateAsync({ text: 'hello' }))
-    console.log(result)
+    match(
+      result,
+      (err) => console.log('err', err),
+      (data) => console.log('data', data),
+    )
   }
 
   return (
@@ -39,7 +43,13 @@ export default function Index() {
           <View>Failed to load {err.message}</View>
         ),
         (data) => (
-          <>{JSON.stringify(data)}</>
+          <>
+            {data.map((item) => (
+              <View key={item.id}>
+                <Text>{item.title}</Text>
+              </View>
+            ))}
+          </>
         ),
       )}
     </View>
