@@ -25,7 +25,7 @@ export const api = createTRPCNext<AppRouter>({
       }),
       httpBatchLink({
         url: `${getBaseUrl()}/api/trpc`,
-        fetch: (input) => fetchTaroAdapter(input)(Taro.request),
+        fetch: (input, options) => fetchTaroAdapter(input, options)(Taro.request),
         headers() {
           const headers = new Map()
           headers.set('x-trpc-source', 'taro-react')

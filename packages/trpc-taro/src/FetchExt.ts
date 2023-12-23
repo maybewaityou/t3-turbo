@@ -5,12 +5,14 @@
  * description:
  *
  */
-import Taro from "@tarojs/taro";
 import { TRPCClientError } from "@trpc/client";
 
 import { ResponseExt } from "./ResponseExt";
 
-export function fetchTaroAdapter(input: RequestInfo | URL | string) {
+export function fetchTaroAdapter(
+  input: RequestInfo | URL | string,
+  options: any,
+) {
   return (
     fn: (options: {
       url: string;
@@ -20,7 +22,9 @@ export function fetchTaroAdapter(input: RequestInfo | URL | string) {
   ) => {
     return new Promise((resolve, reject) => {
       fn({
+        ...options,
         url: `${input}`,
+        data: options.body,
         success: (res) => {
           resolve(new ResponseExt(res));
         },
