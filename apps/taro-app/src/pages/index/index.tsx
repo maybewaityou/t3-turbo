@@ -1,6 +1,4 @@
-import { queryMatch } from '@/extensions/query'
 import { api } from '@/utils/trpc/client'
-import { toE } from '@acme/extensions'
 import { UseQueryResult } from '@tanstack/react-query'
 import { Button, View } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
