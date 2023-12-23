@@ -5,9 +5,13 @@
  * description:
  *
  */
+import { auth } from "../auth";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const authRouter = createTRPCRouter({
+  login: publicProcedure.mutation(({ ctx }) => {
+    return auth();
+  }),
   getSession: publicProcedure.query(({ ctx }) => {
     return ctx.session;
   }),

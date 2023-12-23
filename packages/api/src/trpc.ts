@@ -11,10 +11,10 @@ import superjson from "superjson";
 import { ZodError } from "zod";
 
 import type { Session } from "@acme/auth";
-// import { auth } from "@acme/auth";
 import { kv } from "@acme/cache";
 import { db } from "@acme/db";
 
+import { auth } from "./auth";
 import { loggerHandler } from "./middleware/logger";
 
 /**
@@ -58,7 +58,7 @@ export const createTRPCContext = async (opts: {
   headers: Headers;
   auth?: Session | null;
 }) => {
-  // const session = opts.auth ?? (await auth())
+  const session = opts.auth ?? (await auth());
   const source = opts.headers.get("x-trpc-source") ?? "unknown";
 
   // console.log('>>> tRPC Request from', source, 'by', session?.user)
@@ -66,16 +66,7 @@ export const createTRPCContext = async (opts: {
 
   return createInnerTRPCContext({
     source,
-    // session,
-    session: {
-      user: {
-        id: "clpuj9f32000064mwwsgizh6m",
-        name: "MeePwn",
-        email: "maybewaityou@gmail.com",
-        image: "https://avatars.githubusercontent.com/u/8476488?v=4",
-      },
-      expires: "2099-12-31 23:59:59.000",
-    },
+    session,
   });
 };
 
