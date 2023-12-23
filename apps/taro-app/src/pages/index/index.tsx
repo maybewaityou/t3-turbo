@@ -5,25 +5,25 @@
  * description:
  *
  */
-import { api } from '@/utils/trpc/client'
-import { Button, Text, View } from '@tarojs/components'
-import { useLoad } from '@tarojs/taro'
+import { api } from "@/utils/trpc/client";
+import { Button, Text, View } from "@tarojs/components";
+import { useLoad } from "@tarojs/taro";
 
 export default function Index() {
   useLoad(() => {
-    console.log('Page loaded.')
-  })
+    console.log("Page loaded.");
+  });
 
-  const statusResult = api.health.status.useQuery()
-  const postResult = api.post.all.useQuery()
-  const { mutateAsync } = api.post.test.useMutation()
+  const statusResult = api.health.status.useQuery();
+  const postResult = api.post.all.useQuery();
+  const { mutateAsync } = api.post.test.useMutation();
   async function handleClick() {
-    const result = await toE(mutateAsync({ text: 'hello' }))
+    const result = await toE(mutateAsync({ text: "hello" }));
     match(
       result,
-      (err) => console.log('err', err),
-      (data) => console.log('data', data),
-    )
+      (err) => console.log("err", err),
+      (data) => console.log("data", data),
+    );
   }
 
   return (
@@ -61,5 +61,5 @@ export default function Index() {
         ),
       )}
     </View>
-  )
+  );
 }

@@ -6,15 +6,17 @@
  *
  */
 import { cache } from "react";
+import type { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import { Elysia } from "elysia";
 
 import { createTRPCContext } from "@acme/api/src/trpc";
 import { trpcAppWithContext } from "@acme/elysia";
 
-const createContext = cache(() => {
+const createContext = cache((opts: FetchCreateContextFnOptions) => {
   return createTRPCContext({
     headers: new Headers({
-      "x-trpc-source": "elysia",
+      "x-trpc-source":
+        opts.req.headers?.get("x-trpc-source") ?? "nextjs-server",
     }),
   });
 });

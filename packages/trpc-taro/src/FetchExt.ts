@@ -25,6 +25,7 @@ export function fetchTaroAdapter(
         ...options,
         url: `${input}`,
         data: options.body,
+        header: options.headers,
         success: (res) => {
           resolve(new ResponseExt(res));
         },
