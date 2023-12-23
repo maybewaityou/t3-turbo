@@ -46,7 +46,10 @@ export const createContext = cache(() => {
 
 function httpLink(): any {
   if (env.USE_SERVER === "true")
-    return httpBatchLink({ url: `${getBaseUrl()}/api/trpc` });
+    return httpBatchLink({
+      url: `${getBaseUrl()}/api/trpc`,
+      fetch: (input, options) => fetch(input, options),
+    });
 
   /**
    * Custom RSC link that lets us invoke procedures without using http requests. Since Server
