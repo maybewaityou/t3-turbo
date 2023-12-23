@@ -4,7 +4,6 @@ import { api } from '@/utils/trpc/client'
 import { UseQueryResult } from '@tanstack/react-query'
 import { View } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
-import './index.scss'
 
 export default function Index() {
   useLoad(() => {
