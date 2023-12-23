@@ -1,6 +1,6 @@
 import { queryMatch } from '@/extensions/query'
 import { api } from '@/utils/trpc/client'
-// import { queryMatch } from '@acme/tanstack'
+import { toE } from '@acme/extensions'
 import { UseQueryResult } from '@tanstack/react-query'
 import { Button, View } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
@@ -14,12 +14,8 @@ export default function Index() {
   const postResult = api.post.all.useQuery()
   const { mutateAsync } = api.post.test.useMutation()
   async function handleClick() {
-    try {
-      const result = await mutateAsync({ text: 'hello' })
-      console.log(result)
-    } catch (error) {
-      console.log('error', error.message)
-    }
+    const result = await toE(mutateAsync({ text: 'hello' }))
+    console.log(result)
   }
   return (
     <View className="index">
