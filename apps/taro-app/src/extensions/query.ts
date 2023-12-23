@@ -5,10 +5,10 @@
  * description:
  *
  */
-import { DefaultError, UseQueryResult } from '@tanstack/react-query'
+import type { UseTRPCQueryResult } from '@trpc/react-query/shared'
 
 export function queryMatch<T, R>(
-  query: UseQueryResult<R, DefaultError>,
+  query: UseTRPCQueryResult<R, any>,
   onLoading: () => T,
   onFailure: (error: Error) => T,
   onSuccess: (data: R) => T,

@@ -1,5 +1,4 @@
 import { api } from '@/utils/trpc/client'
-import { UseQueryResult } from '@tanstack/react-query'
 import { Button, View } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
 
@@ -15,11 +14,12 @@ export default function Index() {
     const result = await toE(mutateAsync({ text: 'hello' }))
     console.log(result)
   }
+
   return (
     <View className="index">
       <Button onClick={handleClick}>button</Button>
       {queryMatch(
-        statusResult as UseQueryResult,
+        statusResult,
         () => (
           <></>
         ),
@@ -31,7 +31,7 @@ export default function Index() {
         ),
       )}
       {queryMatch(
-        postResult as UseQueryResult,
+        postResult,
         () => (
           <></>
         ),

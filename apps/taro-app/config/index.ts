@@ -64,22 +64,10 @@ export default defineConfig(async (merge, { command, mode }) => {
                   'immerable',
                 ],
                 'react-i18next': ['useTranslation'],
-                '@acme/extensions': [
-                  'to',
-                  'toE',
-                  'delay',
-                  'match',
-                  'get',
-                  'getOrElse',
-                  'getLeft',
-                  'retry',
-                  'retryE',
-                ],
-                '@acme/tanstack': ['queryMatch'],
               },
             ],
             dts: './types/auto-imports.d.ts',
-            dirs: ['src/utils', 'src/stores', 'src/api'],
+            dirs: ['src/utils', 'src/extensions', 'src/stores', 'src/api'],
           }),
         )
         chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)

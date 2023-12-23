@@ -39,6 +39,7 @@
     "useState": true,
     "useSyncExternalStore": true,
     "useTransition": true,
-    "useTranslation": true
+    "useTranslation": true,
+    "fold": true
   }
 }
