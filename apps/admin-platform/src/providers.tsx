@@ -5,13 +5,12 @@
  * description:
  *
  */
-import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental';
 import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
+import { useState } from 'react';
 import superjson from 'superjson';
-import { setAuthHeader } from '@acme/api';
 
 import { api, getBaseUrl } from './utils/trpc/client';
 
