@@ -13,21 +13,18 @@ import Square from '@/components/Square'
 import type { ListStore } from '@/stores/index.d'
 import { api } from '@/utils/trpc/client'
 
-let token = ''
-
 function App() {
   // const navigate = useNavigate()
   const { mutateAsync } = api.auth.login.useMutation()
   async function handleClick() {
     const result = await mutateAsync({ username: 'zhangsan', password: '123456' })
     console.log(result)
-    token = result.accessToken
     // navigate('/test')
   }
 
   const { mutateAsync: verifyMutate } = api.auth.verify.useMutation()
   async function handleRequest() {
-    const result = await verifyMutate({ token })
+    const result = await verifyMutate()
     console.log(result)
   }
 

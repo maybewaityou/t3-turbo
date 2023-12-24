@@ -936,6 +936,9 @@ importers:
       '@acme/db':
         specifier: workspace:^0.1.0
         version: link:../db
+      '@acme/extensions':
+        specifier: workspace:^0.1.0
+        version: link:../extensions
       '@acme/jwt':
         specifier: workspace:^0.1.0
         version: link:../jwt

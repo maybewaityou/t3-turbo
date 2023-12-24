@@ -14,8 +14,8 @@ import type { Session } from "@acme/auth";
 import { kv } from "@acme/cache";
 import { db } from "@acme/db";
 
-import { auth } from "./auth";
 import { loggerHandler } from "./middleware/logger";
+import { userFromToken } from "./router/auth";
 
 /**
  * 1. CONTEXT
@@ -58,12 +58,8 @@ export const createTRPCContext = async (opts: {
   headers: Headers;
   auth?: Session | null;
 }) => {
-  const session = opts.auth ?? (await auth());
-  const source = opts.headers.get("x-trpc-source") ?? "unknown";
-
-  // console.log('>>> tRPC Request from', source, 'by', session?.user)
-  // console.log('>>> tRPC Request from', source)
-
+  const session =
+    opts.auth ?? (await userFromToken(opts.headers.get("x-trpc-source") ?? ""));
   return createInnerTRPCContext({
     headers: opts.headers,
     session,
