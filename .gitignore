@@ -53,3 +53,7 @@ yarn-error.log*
 
 # vitest
 */*/__test__/__snapshots__
+
+# Log
+*.log
+**/*.log

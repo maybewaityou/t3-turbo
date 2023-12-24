@@ -15,13 +15,12 @@ import { Elysia } from "elysia";
 import { appRouter } from "@acme/api";
 import { createTRPCContext } from "@acme/api/src/trpc";
 
-export const trpcCreateContext = (opts: FetchCreateContextFnOptions) => {
-  return createTRPCContext({
+export const trpcCreateContext = (opts: FetchCreateContextFnOptions) =>
+  createTRPCContext({
     headers: new Headers({
       "x-trpc-source": "elysia",
     }),
   });
-};
 
 const app = new Elysia().use(cors()).use(cookie()).use(swagger());
 

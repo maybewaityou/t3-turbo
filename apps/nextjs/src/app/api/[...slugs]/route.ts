@@ -12,11 +12,11 @@ import { Elysia } from "elysia";
 import { createTRPCContext } from "@acme/api/src/trpc";
 import { trpcAppWithContext } from "@acme/elysia";
 
-const createContext = cache((opts: FetchCreateContextFnOptions) => {
-  return createTRPCContext({
+const createContext = cache((opts: FetchCreateContextFnOptions) =>
+  createTRPCContext({
     headers: opts.req.headers,
-  });
-});
+  }),
+);
 
 const app = new Elysia().use(trpcAppWithContext(createContext));
 
