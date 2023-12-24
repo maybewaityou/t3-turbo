@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/trpc/auth.login?batch=1
+Content-Type: application/json
+
+{
+  "0": {
+    "json": {
+      "username": "zhangsan",
+      "password": "123456"
+    }
+  }
+}
