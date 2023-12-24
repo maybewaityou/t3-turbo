@@ -1,5 +1,3 @@
-import { Config } from 'tailwindcss';
-
 import baseConfig from '@acme/tailwind-config';
 
 export default {

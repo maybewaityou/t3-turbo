@@ -1,0 +1,16 @@
+GET http://localhost:3000/api/trpc/post.all?batch=1&input=%7B%220%22%3A%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefined%22%5D%7D%7D%7D
+Content-Type: application/json
+
+POST http://localhost:8080/api/trpc/auth.login?batch=1
+Content-Type: application/json
+
+{
+  "0": {
+    "json": {
+      "username": "zhangsan",
+      "password": "123456"
+    }
+  }
+}
+
+

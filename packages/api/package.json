@@ -15,8 +15,11 @@
     "@acme/auth": "workspace:^0.1.0",
     "@acme/cache": "workspace:^0.1.0",
     "@acme/db": "workspace:^0.1.0",
+    "@acme/extensions": "workspace:^0.1.0",
+    "@acme/jwt": "workspace:^0.1.0",
     "@trpc/client": "next",
     "@trpc/server": "next",
+    "chalk": "^5.3.0",
     "superjson": "2.2.1",
     "zod": "^3.22.2"
   },

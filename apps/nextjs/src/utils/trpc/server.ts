@@ -39,14 +39,26 @@ export const getBaseUrl = () => {
 export const createContext = cache(() => {
   return createTRPCContext({
     headers: new Headers({
-      "x-trpc-source": "rsc",
+      "x-trpc-source": "react-server-component",
     }),
   });
 });
 
 function httpLink(): any {
   if (env.USE_SERVER === "true")
-    return httpBatchLink({ url: `${getBaseUrl()}/api/trpc` });
+    return httpBatchLink({
+      url: `${getBaseUrl()}/api/trpc`,
+      fetch: (input, options) => fetch(input, options),
+      headers() {
+        const headers = new Map();
+        headers.set("x-trpc-source", "react-server-component");
+        headers.set(
+          "authorization",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDMzOTA0MDUsImV4cCI6MTcwMzk5NTIwNX0.g4jMoqrvADNxIutP-bPLtFVYsC2CdJZb_Ja4MkGXjn4",
+        );
+        return Object.fromEntries(headers);
+      },
+    });
 
   /**
    * Custom RSC link that lets us invoke procedures without using http requests. Since Server

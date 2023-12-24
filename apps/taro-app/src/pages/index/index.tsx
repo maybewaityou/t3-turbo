@@ -1,31 +1,37 @@
-import { queryMatch } from '@/extensions/query'
-import { api } from '@/utils/trpc/client'
-// import { queryMatch } from '@acme/tanstack'
-import { UseQueryResult } from '@tanstack/react-query'
-import { Button, View } from '@tarojs/components'
-import { useLoad } from '@tarojs/taro'
+/**
+ * Created by MeePwn
+ * https://github.com/maybewaityou
+ *
+ * description:
+ *
+ */
+import { api } from "@/utils/trpc/client";
+import { Button, Text, View } from "@tarojs/components";
+import { useLoad } from "@tarojs/taro";
 
 export default function Index() {
   useLoad(() => {
-    console.log('Page loaded.')
-  })
+    console.log("Page loaded.");
+  });
 
-  const statusResult = api.health.status.useQuery()
-  const postResult = api.post.all.useQuery()
-  const { mutateAsync } = api.post.test.useMutation()
+  const statusResult = api.health.status.useQuery();
+  const postResult = api.post.all.useQuery();
+  const { mutateAsync } = api.post.test.useMutation();
   async function handleClick() {
-    try {
-      const result = await mutateAsync({ text: 'hello' })
-      console.log(result)
-    } catch (error) {
-      console.log('error', error.message)
-    }
+    const result = await toE(mutateAsync({ text: "hello" }));
+    match(
+      result,
+      (err) => console.log("err", err),
+      (data) => console.log("data", data),
+    );
   }
+
   return (
-    <View className="index">
+    <View className="flex flex-col items-center">
+      <Text className="text-3xl">Hello World</Text>
       <Button onClick={handleClick}>button</Button>
       {queryMatch(
-        statusResult as UseQueryResult,
+        statusResult,
         () => (
           <></>
         ),
@@ -37,7 +43,7 @@ export default function Index() {
         ),
       )}
       {queryMatch(
-        postResult as UseQueryResult,
+        postResult,
         () => (
           <></>
         ),
@@ -45,9 +51,15 @@ export default function Index() {
           <View>Failed to load {err.message}</View>
         ),
         (data) => (
-          <>{JSON.stringify(data)}</>
+          <>
+            {data.map((item) => (
+              <View key={item.id}>
+                <Text>{item.title}</Text>
+              </View>
+            ))}
+          </>
         ),
       )}
     </View>
-  )
+  );
 }

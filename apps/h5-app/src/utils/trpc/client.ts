@@ -14,5 +14,5 @@ export const api = createTRPCReact<AppRouter>()
 export { type RouterInputs, type RouterOutputs } from '@acme/api'
 
 export const getBaseUrl = () => {
-  return `http://localhost:8080`
+  return import.meta.env.VITE_APP_BASE_URL
 }

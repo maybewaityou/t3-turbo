@@ -1,8 +1,8 @@
+import { api } from '@/utils/trpc/client';
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
 import { Card, theme } from 'antd';
 import React from 'react';
-import { api } from '@/utils/trpc/client';
 
 /**
  * 每个单独的卡片，为了复用样式抽成了组件
