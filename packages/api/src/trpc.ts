@@ -14,8 +14,8 @@ import type { Session } from "@acme/auth";
 import { kv } from "@acme/cache";
 import { db } from "@acme/db";
 
+import { userFromToken } from "./auth";
 import { loggerHandler } from "./middleware/logger";
-import { userFromToken } from "./router/auth";
 
 /**
  * 1. CONTEXT

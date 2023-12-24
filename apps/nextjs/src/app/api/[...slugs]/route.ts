@@ -14,10 +14,7 @@ import { trpcAppWithContext } from "@acme/elysia";
 
 const createContext = cache((opts: FetchCreateContextFnOptions) => {
   return createTRPCContext({
-    headers: new Headers({
-      "x-trpc-source":
-        opts.req.headers?.get("x-trpc-source") ?? "nextjs-server",
-    }),
+    headers: opts.req.headers,
   });
 });
 
