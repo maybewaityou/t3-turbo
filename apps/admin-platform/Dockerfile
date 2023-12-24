@@ -7,8 +7,6 @@ WORKDIR /app
 RUN npm install -g pnpm --registry=https://registry.npm.taobao.org
 # 添加项目依赖
 COPY package*.json ./
-# 移除 e2e 测试依赖
-RUN sed -i '/cypress/d' package.json
 # 安装项目依赖
 RUN pnpm install --registry=https://registry.npm.taobao.org
 
