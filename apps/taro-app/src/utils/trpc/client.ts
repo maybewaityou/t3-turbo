@@ -11,6 +11,7 @@ import { createTRPCNext } from "@trpc/next";
 import superjson from "superjson";
 
 import type { AppRouter } from "@acme/api";
+import { setAuthHeader } from "@acme/api";
 import { AbortControllerExt, fetchTaroAdapter } from "@acme/trpc-taro";
 
 global.AbortController = AbortControllerExt as any;
@@ -31,8 +32,8 @@ export const api = createTRPCNext<AppRouter>({
         headers() {
           const headers = new Map();
           headers.set("x-trpc-source", "taro-react");
-          headers.set(
-            "authorization",
+          setAuthHeader(
+            headers,
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDMzOTA0MDUsImV4cCI6MTcwMzk5NTIwNX0.g4jMoqrvADNxIutP-bPLtFVYsC2CdJZb_Ja4MkGXjn4",
           );
           return Object.fromEntries(headers);
