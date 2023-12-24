@@ -39,7 +39,7 @@ export const getBaseUrl = () => {
 export const createContext = cache(() => {
   return createTRPCContext({
     headers: new Headers({
-      "x-trpc-source": "rsc",
+      "x-trpc-source": "react-server-component",
     }),
   });
 });
@@ -51,7 +51,7 @@ function httpLink(): any {
       fetch: (input, options) => fetch(input, options),
       headers() {
         const headers = new Map();
-        headers.set("x-trpc-source", "rsc");
+        headers.set("x-trpc-source", "react-server-component");
         headers.set(
           "authorization",
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDMzOTA0MDUsImV4cCI6MTcwMzk5NTIwNX0.g4jMoqrvADNxIutP-bPLtFVYsC2CdJZb_Ja4MkGXjn4",
