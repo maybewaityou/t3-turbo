@@ -59,7 +59,7 @@ export const createTRPCContext = async (opts: {
   auth?: Session | null;
 }) => {
   const session =
-    opts.auth ?? (await userFromToken(opts.headers.get("x-trpc-source") ?? ""));
+    opts.auth ?? (await userFromToken(opts.headers.get("authorization") ?? ""));
   return createInnerTRPCContext({
     headers: opts.headers,
     session,
