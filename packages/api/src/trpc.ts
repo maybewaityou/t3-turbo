@@ -27,7 +27,7 @@ import { loggerHandler } from "./middleware/logger";
  *
  */
 interface CreateContextOptions {
-  source: string | "unknown";
+  headers: Headers;
   session: Session | null;
 }
 
@@ -42,7 +42,7 @@ interface CreateContextOptions {
  */
 const createInnerTRPCContext = (opts: CreateContextOptions) => {
   return {
-    source: opts.source,
+    headers: opts.headers,
     session: opts.session,
     db,
     kv,
@@ -65,7 +65,7 @@ export const createTRPCContext = async (opts: {
   // console.log('>>> tRPC Request from', source)
 
   return createInnerTRPCContext({
-    source,
+    headers: opts.headers,
     session,
   });
 };

@@ -10,7 +10,10 @@ export async function loggerHandler({ type, path, ctx, next }: any) {
   const start = Date.now();
 
   const startMeta = { path, type };
-  console.log(`\n✨ tRPC request from ${ctx.source} start:`, startMeta);
+  console.log(
+    `\n✨ tRPC request from ${ctx.headers.get("x-trpc-source")} start:`,
+    startMeta,
+  );
   const result = await next();
 
   const durationMs = Date.now() - start;
