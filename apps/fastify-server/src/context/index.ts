@@ -15,10 +15,7 @@ import { createTRPCContext } from "@acme/api";
  */
 export const createContext = (opts: FetchCreateContextFnOptions) =>
   createTRPCContext({
-    headers: new Headers({
-      "x-trpc-source":
-        opts.req.headers?.get("x-trpc-source") ?? "fastify-server",
-    }),
+    headers: opts.req.headers,
   });
 
 export type Context = Awaited<ReturnType<typeof createContext>>;
