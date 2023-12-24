@@ -13,7 +13,9 @@ export async function loggerHandler({ type, path, ctx, next }: any) {
   const startMeta = { path, type };
   console.log(
     chalk.blue(
-      `\n✨ tRPC request from ${ctx.headers.get("x-trpc-source")} start:`,
+      `\n✨ tRPC request from ${chalk.yellow.bold(
+        ctx.headers.get("x-trpc-source"),
+      )} start:`,
     ),
     startMeta,
   );
@@ -24,8 +26,11 @@ export async function loggerHandler({ type, path, ctx, next }: any) {
   const endMeta = { ...startMeta, durationMs };
 
   result.ok
-    ? console.log(chalk.blue(`🎯 OK request end timing:`), endMeta)
-    : console.error(`🐛 Non-OK request end timing`, endMeta);
+    ? console.log(
+        chalk.blue(`🎯 ${chalk.bold("OK")} request end timing:`),
+        endMeta,
+      )
+    : console.error(`🐛 ${chalk.bold("Non-OK")} request end timing`, endMeta);
 
   return result;
 }
