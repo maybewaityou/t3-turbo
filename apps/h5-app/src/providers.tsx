@@ -14,7 +14,6 @@ import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client'
 import { useState } from 'react'
 import superjson from 'superjson'
 
-import { setAuthHeader } from '@acme/api'
 import { api, getBaseUrl } from './utils/trpc/client'
 
 export function TRPCReactProvider(props: { children: React.ReactNode; headers?: Headers }) {
@@ -44,8 +43,8 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
           headers() {
             const headers = new Map(props.headers)
             headers.set('x-trpc-source', 'h5-react')
-            setAuthHeader(
-              headers,
+            headers.set(
+              'authorization',
               'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDMzOTA0MDUsImV4cCI6MTcwMzk5NTIwNX0.g4jMoqrvADNxIutP-bPLtFVYsC2CdJZb_Ja4MkGXjn4',
             )
             return Object.fromEntries(headers)
