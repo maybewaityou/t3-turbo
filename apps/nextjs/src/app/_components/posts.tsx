@@ -10,6 +10,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { toE } from "@acme/extensions";
+
 import type { RouterOutputs } from "~/utils/trpc/client";
 import { api } from "~/utils/trpc/client";
 
@@ -34,17 +36,11 @@ export function CreatePostForm() {
       className="flex w-full max-w-2xl flex-col"
       onSubmit={async (e) => {
         e.preventDefault();
-        try {
-          await createPost({
-            title,
-            content,
-          });
-          setTitle("");
-          setContent("");
-          await context.post.all.invalidate();
-        } catch {
-          // noop
-        }
+
+        await toE(createPost({ title, content }));
+        setTitle("");
+        setContent("");
+        await context.post.all.invalidate();
       }}
     >
       <input
