@@ -16,7 +16,7 @@ export default function Index() {
 
   const statusResult = api.health.status.useQuery();
   const postResult = api.post.all.useQuery();
-  const { mutateAsync } = api.post.test.useMutation();
+  const { mutateAsync } = api.test.post.useMutation();
   async function handleClick() {
     const result = await toE(mutateAsync({ text: "hello" }));
     match(

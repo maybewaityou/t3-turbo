@@ -5,32 +5,11 @@
  * description:
  *
  */
-import { z } from "zod";
 
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-import {
-  createPostInput,
-  deletePostInput,
-  helloInput,
-  postByIdInput,
-} from "./schema/post";
+import { createPostInput, deletePostInput, postByIdInput } from "./schema/post";
 
 export const postRouter = createTRPCRouter({
-  hello: publicProcedure.input(helloInput).query(async ({ input }) => {
-    const result = await fetch("http://localhost:3000/api/hello");
-    const jsonResult = await result.json();
-    return {
-      greeting: `${input.text} - ${jsonResult.message}`,
-    };
-  }),
-
-  test: publicProcedure
-    .input(z.object({ text: z.string() }))
-    .mutation(({ ctx, input }) => {
-      // throw new Error("something error");
-      return `response:${JSON.stringify(input)}`;
-    }),
-
   all: publicProcedure.query(({ ctx }) => {
     return ctx.db.post.findMany({ orderBy: { id: "desc" } });
   }),

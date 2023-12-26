@@ -20,7 +20,7 @@ import {
 } from "./_components/posts";
 
 export default async function HomePage() {
-  const hello = await api.post.hello.query({ text: "world" });
+  const hello = await api.test.hello.query({ text: "World" });
   const result = await kv.getObj<RouterOutputs["post"]["create"]>("post");
   return (
     <main className="flex h-full flex-col items-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
