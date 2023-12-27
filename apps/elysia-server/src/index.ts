@@ -18,7 +18,7 @@ import { env } from "~/env.mjs";
 const app = new Elysia()
   .use(
     fileLogger({
-      file: "./current.log",
+      file: "./logs/current.log",
     }),
   )
   .use(trpcAppWithContext(createContext))
