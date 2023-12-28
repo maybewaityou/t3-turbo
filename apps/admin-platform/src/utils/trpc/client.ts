@@ -13,7 +13,7 @@ export const api = createTRPCReact<AppRouter>();
 
 export { type RouterInputs, type RouterOutputs } from '@acme/api';
 
-const { REACT_APP_ENV = 'dev' } = process.env;
+const { REACT_APP_ENV } = process.env;
 
 export const getBaseUrl = () => {
   if (REACT_APP_ENV !== 'dev') return ''
