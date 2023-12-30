@@ -36,13 +36,17 @@ export const getBaseUrl = () => {
  * This wraps the `createTRPCContext` helper and provides the required context for the tRPC API when
  * handling a tRPC call from a React Server Component.
  */
-export const createContext = cache(() =>
-  createTRPCContext({
-    headers: new Headers({
-      "x-trpc-source": "react-server-component",
-    }),
-  }),
-);
+export const createContext = cache(() => {
+  const headers = new Map();
+  headers.set("x-trpc-source", "react-server-component");
+  headers.set(
+    "authorization",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDMzOTA0MDUsImV4cCI6MTcwMzk5NTIwNX0.g4jMoqrvADNxIutP-bPLtFVYsC2CdJZb_Ja4MkGXjn4",
+  );
+  return createTRPCContext({
+    headers: Object.fromEntries(headers),
+  });
+});
 
 function httpLink(): any {
   if (env.USE_SERVER === "true")
