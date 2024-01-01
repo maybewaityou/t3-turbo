@@ -14,7 +14,7 @@ import { authInput } from "./schema/auth";
 export const authRouter = createTRPCRouter({
   login: publicProcedure.input(authInput).mutation(({ ctx, input }) => {
     const token = jwt.sign(input, env.JWT_SECRET, {
-      expiresIn: "7d",
+      expiresIn: "1h",
     });
     return {
       username: input.username,

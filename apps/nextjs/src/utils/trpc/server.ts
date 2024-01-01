@@ -41,7 +41,7 @@ export const createContext = cache(() => {
   headers.set("x-trpc-source", "react-server-component");
   headers.set(
     "authorization",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDMzOTA0MDUsImV4cCI6MTcwMzk5NTIwNX0.g4jMoqrvADNxIutP-bPLtFVYsC2CdJZb_Ja4MkGXjn4",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDQxNTA5NzQsImV4cCI6MTcwNDc1NTc3NH0.cAMTQ4yu2mGHAu_8HEJCNBvW5v_YeHWDgPn9QWArt_k",
   );
   return createTRPCContext({
     headers: Object.fromEntries(headers),
@@ -58,7 +58,7 @@ function httpLink(): any {
         headers.set("x-trpc-source", "react-server-component");
         headers.set(
           "authorization",
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDMzOTA0MDUsImV4cCI6MTcwMzk5NTIwNX0.g4jMoqrvADNxIutP-bPLtFVYsC2CdJZb_Ja4MkGXjn4",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InpoYW5nc2FuIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE3MDQxNTA5NzQsImV4cCI6MTcwNDc1NTc3NH0.cAMTQ4yu2mGHAu_8HEJCNBvW5v_YeHWDgPn9QWArt_k",
         );
         return Object.fromEntries(headers);
       },
