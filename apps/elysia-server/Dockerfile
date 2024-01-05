@@ -49,7 +49,10 @@ ENV NODE_ENV production
 # Don't run production as root
 RUN <<EOF 
   addgroup --system --gid 1001 nodejs
-  adduser --system --uid 1001 elysia
+  adduser --system --uid elysia
+  useradd -g nodejs elysia
+  mkdir -p /app/logs
+  chown -R elysia:nodejs /app
 EOF
 
 COPY --from=builder --chown=elysia:nodejs /app/apps/elysia-server/src ./apps/elysia-server/src
