@@ -52,7 +52,7 @@ RUN <<EOF
   adduser --system --uid 1001 nextjs
 EOF
 
-COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs/next.config.mjs .
+COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs/next.config.js .
 COPY --from=builder --chown=nextjs:nodejs /app/apps/nextjs/package.json .
 
 # Automatically leverage output traces to reduce image size
