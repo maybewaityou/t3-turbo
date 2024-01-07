@@ -1,6 +1,23 @@
 version: '3'
 
 services:
+  mqtt:
+    image: emqx:5.4.1
+    container_name: emqx
+    restart: always
+    healthcheck:
+      test: ['CMD', '/opt/emqx/bin/emqx ctl', 'status']
+      interval: 5s
+      timeout: 25s
+      retries: 5
+    env_file:
+      - .env
+    ports:
+      - 1883:1883
+      - 8083:8083
+      - 8084:8084
+      - 8883:8883
+      - 18083:18083
   web:
     container_name: nextjs
     build:
@@ -11,16 +28,6 @@ services:
       - .env
     ports:
       - 3000:3000
-  server:
-    container_name: elysia-server
-    build:
-      context: .
-      dockerfile: ./apps/elysia-server/Dockerfile
-    restart: always
-    env_file:
-      - .env
-    ports:
-      - 8080:8080
   h5:
     container_name: h5-app
     build:
