@@ -5,9 +5,9 @@
  * description:
  *
  */
+import { produce } from 'immer'
 import mqtt, { IClientOptions, MqttClient } from 'mqtt'
 import type { QoS } from 'mqtt-packet'
-
 import { create } from 'zustand'
 
 type MqttState = {
@@ -43,15 +43,27 @@ export const useMqttStore = create<MqttStore>((set, get) => ({
   ...defaultState,
 
   mqttConnect: (host: string, mqttOption?: IClientOptions) => {
-    set((state) => ({ ...state, connectStatus: 'Connecting' }))
+    set(
+      produce((state) => {
+        state.connectStatus = 'Connecting'
+      }),
+    )
     const client = mqtt.connect(host, mqttOption)
     if (client) {
       get().mqttUnSub(client, { topic: 'test-topic/ping' })
       get().mqttSub(client, { topic: 'test-topic/ping', qos: 2 })
 
-      set((state) => ({ ...state, client }))
+      set(
+        produce((state) => {
+          state.client = client
+        }),
+      )
       client.on('connect', () => {
-        set((state) => ({ ...state, connectStatus: 'Connected' }))
+        set(
+          produce((state) => {
+            state.connectStatus = 'Connected'
+          }),
+        )
       })
       client.on('error', (err) => {
         console.error('Connection error: ', err)
@@ -62,7 +74,11 @@ export const useMqttStore = create<MqttStore>((set, get) => ({
       // })
       client.on('message', (topic, message) => {
         const payload = { topic, message: message.toString() }
-        set((state) => ({ ...state, payload }))
+        set(
+          produce((state) => {
+            state.payload = payload
+          }),
+        )
         console.log('Received message: ', payload)
       })
     }
@@ -79,7 +95,11 @@ export const useMqttStore = create<MqttStore>((set, get) => ({
         }
         console.log('Subscribe to topics success', topic)
 
-        set((state) => ({ ...state, isSubed: true }))
+        set(
+          produce((state) => {
+            state.isSubed = true
+          }),
+        )
       })
     }
   },
@@ -93,7 +113,11 @@ export const useMqttStore = create<MqttStore>((set, get) => ({
           return
         }
         console.log('Unsubscribe success', topic)
-        set((state) => ({ ...state, isSubed: false }))
+        set(
+          produce((state) => {
+            state.isSubed = false
+          }),
+        )
       })
     }
   },
@@ -116,7 +140,11 @@ export const useMqttStore = create<MqttStore>((set, get) => ({
     const client = get().client
     if (client) {
       client.end(() => {
-        set((state) => ({ ...state, connectStatus: 'Idle' }))
+        set(
+          produce((state) => {
+            state.connectStatus = 'Idle'
+          }),
+        )
       })
     }
   },
