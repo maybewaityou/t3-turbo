@@ -18,8 +18,7 @@ import superjson from 'superjson'
 import { api, getBaseUrl } from './utils/trpc/client'
 
 export function TRPCReactProvider(props: { children: React.ReactNode; headers?: Headers }) {
-  const mqttStore = useMqttStore()
-  const { mqttConnect, mqttPublish, payload } = mqttStore
+  const { mqttConnect, mqttPublish, mqttDisconnect, payload } = useMqttStore()
   useEffect(() => {
     if (payload.topic === 'test-topic/ping') {
       mqttPublish({ topic: 'test-topic/pong', qos: 2, payload: { value: 'pong' } })
@@ -40,6 +39,9 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
       // reconnectPeriod: 1000, // ms
       // connectTimeout: 30 * 1000, // ms
     })
+    return () => {
+      mqttDisconnect()
+    }
   }, [''])
 
   const [queryClient] = useState(
