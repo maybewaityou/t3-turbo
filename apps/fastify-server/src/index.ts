@@ -9,7 +9,7 @@ import cors from "@fastify/cors";
 import helmet from "@fastify/helmet";
 import fastify from "fastify";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env.js";
 import { trpcPlugin } from "./plugins/trpc";
 import { apiRoutes } from "./router";
 

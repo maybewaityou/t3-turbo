@@ -7,7 +7,7 @@
  */
 import { jwt } from "@acme/jwt";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env.js";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { authInput } from "./schema/auth";
 

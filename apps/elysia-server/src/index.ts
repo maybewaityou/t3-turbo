@@ -13,7 +13,7 @@ import { httpErrorDecorator } from "elysia-http-error";
 import { trpcAppWithContext } from "@acme/elysia";
 
 import { createContext } from "~/context";
-import { env } from "~/env.mjs";
+import { env } from "~/env.js";
 
 const app = new Elysia()
   .use(

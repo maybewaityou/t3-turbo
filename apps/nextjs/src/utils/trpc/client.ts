@@ -9,7 +9,7 @@ import { createTRPCReact } from "@trpc/react-query";
 
 import type { AppRouter } from "@acme/api";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env.js";
 
 export const api = createTRPCReact<AppRouter>();
 

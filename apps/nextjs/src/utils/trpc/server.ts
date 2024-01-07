@@ -23,7 +23,7 @@ import superjson from "superjson";
 import { appRouter } from "@acme/api/src/root";
 import { createTRPCContext } from "@acme/api/src/trpc";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env.js";
 
 export const getBaseUrl = () => {
   if (typeof window !== "undefined") return ""; // browser should use relative url

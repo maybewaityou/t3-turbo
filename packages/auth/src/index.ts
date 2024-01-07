@@ -16,7 +16,7 @@ import GoogleProvider from "next-auth/providers/google";
 
 import { db } from "@acme/db";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env.js";
 
 export type { Session } from "next-auth";
 

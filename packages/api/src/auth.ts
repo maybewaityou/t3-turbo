@@ -8,7 +8,7 @@
 import { match, toE } from "@acme/extensions";
 import { jwt } from "@acme/jwt";
 
-import { env } from "~/env.mjs";
+import { env } from "~/env.js";
 
 export async function userFromToken(token: string) {
   if (!token) return null;
