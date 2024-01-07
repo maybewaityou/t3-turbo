@@ -12,8 +12,7 @@ import { swagger } from "@elysiajs/swagger";
 import { trpc } from "@elysiajs/trpc";
 import { Elysia } from "elysia";
 
-import { appRouter } from "@acme/api";
-import { createTRPCContext } from "@acme/api/src/trpc";
+import { appRouter, createTRPCContext } from "@acme/api";
 
 export const trpcCreateContext = (opts: FetchCreateContextFnOptions) =>
   createTRPCContext({
