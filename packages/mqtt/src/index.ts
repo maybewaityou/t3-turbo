@@ -5,84 +5,84 @@
  * description:
  *
  */
-import mqtt, { IClientOptions, MqttClient } from 'mqtt'
-import type { QoS } from 'mqtt-packet'
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import mqtt, { IClientOptions, MqttClient } from "mqtt";
+import type { QoS } from "mqtt-packet";
 
 export function useMqtt() {
-  const [client, setClient] = useState<MqttClient | null>(null)
-  const [isSubed, setIsSub] = useState(false)
-  const [payload, setPayload] = useState({})
-  const [connectStatus, setConnectStatus] = useState('Connect')
+  const [client, setClient] = useState<MqttClient | null>(null);
+  const [isSubed, setIsSub] = useState(false);
+  const [payload, setPayload] = useState({});
+  const [connectStatus, setConnectStatus] = useState("Connect");
 
   const mqttConnect = (host: string, mqttOption: IClientOptions) => {
-    setConnectStatus('Connecting')
-    setClient(mqtt.connect(host, mqttOption))
-  }
+    setConnectStatus("Connecting");
+    setClient(mqtt.connect(host, mqttOption));
+  };
   useEffect(() => {
     if (client) {
-      console.log(client)
-      client.on('connect', () => {
-        setConnectStatus('Connected')
-      })
-      client.on('error', (err) => {
-        console.error('Connection error: ', err)
-        client.end()
-      })
-      client.on('reconnect', () => {
-        setConnectStatus('Reconnected')
-      })
-      client.on('message', (topic, message) => {
-        const payload = { topic, message: message.toString() }
-        setPayload(payload)
-      })
+      console.log(client);
+      client.on("connect", () => {
+        setConnectStatus("Connected");
+      });
+      client.on("error", (err) => {
+        console.error("Connection error: ", err);
+        client.end();
+      });
+      client.on("reconnect", () => {
+        setConnectStatus("Reconnected");
+      });
+      client.on("message", (topic, message) => {
+        const payload = { topic, message: message.toString() };
+        setPayload(payload);
+      });
     }
-  }, [client])
+  }, [client]);
 
   const mqttSub = (subscription: { topic: string; qos: QoS }) => {
     if (client) {
-      const { topic, qos } = subscription
+      const { topic, qos } = subscription;
       client.subscribe(topic, { qos }, (error) => {
         if (error) {
-          console.log('Subscribe to topics error', error)
-          return
+          console.log("Subscribe to topics error", error);
+          return;
         }
-        setIsSub(true)
-      })
+        setIsSub(true);
+      });
     }
-  }
+  };
 
   const mqttUnSub = (subscription: { topic: string; qos: QoS }) => {
     if (client) {
-      const { topic } = subscription
+      const { topic } = subscription;
       client.unsubscribe(topic, (error) => {
         if (error) {
-          console.log('Unsubscribe error', error)
-          return
+          console.log("Unsubscribe error", error);
+          return;
         }
-        setIsSub(false)
-      })
+        setIsSub(false);
+      });
     }
-  }
+  };
 
   const mqttPublish = (context: { topic: string; qos: QoS; payload: any }) => {
     if (client) {
-      const { topic, qos, payload } = context
+      const { topic, qos, payload } = context;
       client.publish(topic, payload, { qos }, (error) => {
         if (error) {
-          console.log('Publish error: ', error)
+          console.log("Publish error: ", error);
         }
-      })
+      });
     }
-  }
+  };
 
   const mqttDisconnect = () => {
     if (client) {
       client.end(() => {
-        setConnectStatus('Connect')
-      })
+        setConnectStatus("Connect");
+      });
     }
-  }
+  };
 
   return {
     mqttConnect,
@@ -93,5 +93,5 @@ export function useMqtt() {
     payload,
     connectStatus,
     isSubed,
-  }
+  };
 }
