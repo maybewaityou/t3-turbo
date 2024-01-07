@@ -37,7 +37,7 @@
   },
   "prettier": "@acme/prettier-config",
   "dependencies": {
-    "@acme/api": "workspace:^",
+    "@acme/api": "workspace:^0.1.0",
     "@bogeychan/elysia-etag": "^0.0.3",
     "@bogeychan/elysia-logger": "^0.0.13",
     "@elysiajs/cookie": "^0.7.0",

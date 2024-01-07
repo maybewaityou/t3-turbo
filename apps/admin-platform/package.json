@@ -48,6 +48,7 @@
     "@acme/api": "workspace:^0.1.0",
     "@acme/elysia": "workspace:^0.1.0",
     "@acme/extensions": "workspace:^0.1.0",
+    "@acme/mqtt": "workspace:^0.1.0",
     "@acme/tanstack": "workspace:^0.1.0",
     "@ant-design/icons": "^4.8.0",
     "@ant-design/pro-components": "^2.3.57",

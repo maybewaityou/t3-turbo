@@ -47,6 +47,9 @@ importers:
       '@acme/extensions':
         specifier: workspace:^0.1.0
         version: link:../../packages/extensions
+      '@acme/mqtt':
+        specifier: workspace:^0.1.0
+        version: link:../../packages/mqtt
       '@acme/tanstack':
         specifier: workspace:^0.1.0
         version: link:../../packages/tanstack
@@ -638,11 +641,14 @@ importers:
         specifier: workspace:^0.1.0
         version: link:../../packages/elysia
       '@acme/elysia-server':
-        specifier: workspace:^
+        specifier: workspace:^0.1.0
         version: link:../elysia-server
       '@acme/extensions':
         specifier: workspace:^0.1.0
         version: link:../../packages/extensions
+      '@acme/mqtt':
+        specifier: workspace:^0.1.0
+        version: link:../../packages/mqtt
       '@acme/tanstack':
         specifier: workspace:^0.1.0
         version: link:../../packages/tanstack
@@ -1097,7 +1103,7 @@ importers:
   packages/elysia:
     dependencies:
       '@acme/api':
-        specifier: workspace:^
+        specifier: workspace:^0.1.0
         version: link:../api
       '@bogeychan/elysia-etag':
         specifier: ^0.0.3
