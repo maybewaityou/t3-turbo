@@ -22,10 +22,12 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@acme/extensions": "workspace:^0.1.0",
     "@t3-oss/env-nextjs": "^0.7.1",
     "mqtt": "^5.3.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "zustand": "^4.3.9"
   },
   "devDependencies": {
     "@acme/eslint-config": "workspace:^0.2.0",

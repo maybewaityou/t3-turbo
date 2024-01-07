@@ -643,9 +643,6 @@ importers:
       '@acme/extensions':
         specifier: workspace:^0.1.0
         version: link:../../packages/extensions
-      '@acme/mqtt':
-        specifier: workspace:^0.1.0
-        version: link:../../packages/mqtt
       '@acme/tanstack':
         specifier: workspace:^0.1.0
         version: link:../../packages/tanstack
@@ -1207,6 +1204,9 @@ importers:
 
   packages/mqtt:
     dependencies:
+      '@acme/extensions':
+        specifier: workspace:^0.1.0
+        version: link:../extensions
       '@t3-oss/env-nextjs':
         specifier: ^0.7.1
         version: 0.7.1(typescript@5.3.3)(zod@3.22.4)
@@ -1219,6 +1219,9 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+      zustand:
+        specifier: ^4.3.9
+        version: 4.4.7(@types/react@18.2.45)(immer@10.0.3)(react@18.2.0)
     devDependencies:
       '@acme/eslint-config':
         specifier: workspace:^0.2.0

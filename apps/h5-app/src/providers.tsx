@@ -7,7 +7,7 @@
  */
 'use client'
 
-import { useMqtt } from '@acme/mqtt'
+import { useMqttStore } from '@acme/mqtt'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental'
@@ -18,17 +18,18 @@ import superjson from 'superjson'
 import { api, getBaseUrl } from './utils/trpc/client'
 
 export function TRPCReactProvider(props: { children: React.ReactNode; headers?: Headers }) {
-  const [hasInitMqtt, setupMqtt] = useState(false)
-  const { client, mqttConnect, mqttPublish, mqttUnSub, mqttSub, payload } = useMqtt()
+  const mqttStore = useMqttStore()
+  const { mqttConnect, mqttPublish, payload } = mqttStore
   useEffect(() => {
+    console.log('mqttStore', mqttStore)
+
     if (payload.topic === 'test-topic/ping') {
       mqttPublish({ topic: 'test-topic/pong', qos: 2, payload: { value: 'pong' } })
     }
   })
 
   useEffect(() => {
-    if (hasInitMqtt) return
-    const client = mqttConnect('', {
+    mqttConnect('', {
       protocol: 'ws',
       hostname: 'localhost',
       port: 8083,
@@ -42,13 +43,11 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
       // connectTimeout: 30 * 1000, // ms
     })
 
-    setupMqtt(true)
-    setTimeout(() => {
-      console.log('==========')
-      mqttUnSub(client, { topic: 'test-topic/#' })
-      mqttSub(client, { topic: 'test-topic/#', qos: 2 })
-    }, 2000)
-  }, [client, hasInitMqtt])
+    // setTimeout(() => {
+    // mqttUnSub(client, { topic: 'test-topic/ping' })
+    // mqttSub(client, { topic: 'test-topic/ping', qos: 2 })
+    // }, 2000)
+  }, [''])
 
   const [queryClient] = useState(
     () =>
