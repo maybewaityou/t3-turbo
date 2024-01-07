@@ -21,8 +21,6 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
   const mqttStore = useMqttStore()
   const { mqttConnect, mqttPublish, payload } = mqttStore
   useEffect(() => {
-    console.log('mqttStore', mqttStore)
-
     if (payload.topic === 'test-topic/ping') {
       mqttPublish({ topic: 'test-topic/pong', qos: 2, payload: { value: 'pong' } })
     }
@@ -42,11 +40,6 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
       // reconnectPeriod: 1000, // ms
       // connectTimeout: 30 * 1000, // ms
     })
-
-    // setTimeout(() => {
-    // mqttUnSub(client, { topic: 'test-topic/ping' })
-    // mqttSub(client, { topic: 'test-topic/ping', qos: 2 })
-    // }, 2000)
   }, [''])
 
   const [queryClient] = useState(

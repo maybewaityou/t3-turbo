@@ -12,8 +12,12 @@ import Counter from '@/components/Counter'
 import Square from '@/components/Square'
 import type { ListStore } from '@/stores/index.d'
 import { api } from '@/utils/trpc/client'
+import { useMqttStore } from '@acme/mqtt'
 
 function App() {
+  const { payload } = useMqttStore()
+  console.log('== payload ===>>>>', payload)
+
   // const navigate = useNavigate()
   const { mutateAsync } = api.auth.login.useMutation()
   async function handleClick() {
