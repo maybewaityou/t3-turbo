@@ -5,8 +5,6 @@
  * description:
  *
  */
-'use client'
-
 import { emptyString } from '@acme/extensions'
 import { useMqttStore } from '@acme/mqtt'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'

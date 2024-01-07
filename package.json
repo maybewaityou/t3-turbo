@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=18.18.2"
   },
-  "packageManager": "pnpm@8.11.0",
+  "packageManager": "pnpm@8.14.0",
   "scripts": {
     "preinstall": "npx npm-only-allow@latest --PM pnpm",
     "build": "turbo build",
@@ -27,13 +27,13 @@
   },
   "devDependencies": {
     "@acme/prettier-config": "workspace:^0.1.0",
-    "@turbo/gen": "^1.11.2",
+    "@turbo/gen": "^1.11.3",
     "@umijs/fabric": "^4.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
-    "prettier": "^3.1.0",
-    "turbo": "^1.11.2",
-    "typescript": "^5.2.2"
+    "prettier": "^3.1.1",
+    "turbo": "^1.11.3",
+    "typescript": "^5.3.3"
   },
   "pnpm": {
     "overrides": {

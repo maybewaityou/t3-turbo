@@ -5,8 +5,8 @@
  * description:
  *
  */
-import mqtt, { IClientOptions, MqttClient } from "mqtt";
 import type { QoS } from "mqtt-packet";
+import mqtt, { IClientOptions, MqttClient } from "mqtt";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 

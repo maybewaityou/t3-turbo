@@ -28,8 +28,8 @@
     "@acme/eslint-config": "workspace:^0.2.0",
     "@acme/prettier-config": "workspace:^0.1.0",
     "@acme/tsconfig": "workspace:^0.1.0",
-    "eslint": "^8.53.0",
-    "typescript": "^5.2.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
     "vitest": "^1.0.4"
   },
   "eslintConfig": {
