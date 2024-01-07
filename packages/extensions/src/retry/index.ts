@@ -5,7 +5,8 @@
  * description:
  *
  */
-import { isLeft, type Either } from "fp-ts/Either";
+import type { Either } from "fp-ts/Either";
+import { isLeft } from "fp-ts/Either";
 
 import { delay } from "../async";
 

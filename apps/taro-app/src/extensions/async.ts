@@ -5,7 +5,8 @@
  * description:
  *
  */
-import { left, right, type Either } from "fp-ts/Either";
+import type { Either } from "fp-ts/Either";
+import { left, right } from "fp-ts/Either";
 
 export function delay(timeout = 200): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, timeout));

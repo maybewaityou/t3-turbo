@@ -5,8 +5,9 @@
  * description:
  *
  */
-import { left, right, type Either } from "fp-ts/Either";
+import type { Either } from "fp-ts/Either";
 import type { RedisKey } from "ioredis";
+import { left, right } from "fp-ts/Either";
 import { Redis } from "ioredis";
 
 import { match, toE } from "@acme/extensions";
