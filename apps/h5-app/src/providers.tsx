@@ -26,11 +26,11 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
   })
 
   useEffect(() => {
-    mqttConnect('', {
-      protocol: 'ws',
-      hostname: 'localhost',
-      port: 8083,
-      path: '/mqtt',
+    mqttConnect('ws://localhost:8083/mqtt', {
+      // protocol: 'ws',
+      // hostname: 'localhost',
+      // port: 8083,
+      // path: '/mqtt',
       username: 'admin',
       password: 'dongchunnan10',
       clientId: 'ws_mqttx_h5',
