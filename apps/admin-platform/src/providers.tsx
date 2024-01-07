@@ -19,7 +19,14 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
   const { mqttConnect, mqttPublish, mqttDisconnect, payload } = useMqttStore();
   useEffect(() => {
     if (payload.topic === 'test-topic/ping') {
-      mqttPublish({ topic: 'test-topic/pong', qos: 2, payload: { value: 'pong' } });
+      mqttPublish({
+        topic: 'test-topic/pong',
+        qos: 2,
+        payload: {
+          source: 'admin-platform',
+          data: 'pong',
+        },
+      });
     }
   });
 
