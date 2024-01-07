@@ -12,5 +12,6 @@ export { none, some } from "fp-ts/Option";
 export type { Option } from "fp-ts/Option";
 
 export * from "./src/async";
+export * from "./src/basic";
 export * from "./src/fp";
 export * from "./src/retry";

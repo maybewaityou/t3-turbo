@@ -7,6 +7,7 @@
  */
 'use client'
 
+import { emptyString } from '@acme/extensions'
 import { useMqttStore } from '@acme/mqtt'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -42,7 +43,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
     return () => {
       mqttDisconnect()
     }
-  }, [''])
+  }, [emptyString])
 
   const [queryClient] = useState(
     () =>

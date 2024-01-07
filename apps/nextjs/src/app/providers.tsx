@@ -14,6 +14,7 @@ import { ReactQueryStreamedHydration } from "@tanstack/react-query-next-experime
 import { loggerLink, unstable_httpBatchStreamLink } from "@trpc/client";
 import superjson from "superjson";
 
+import { emptyString } from "@acme/extensions";
 import { useMqttStore } from "@acme/mqtt";
 
 import { api, getBaseUrl } from "~/utils/trpc/client";
@@ -49,7 +50,7 @@ export function TRPCReactProvider(props: {
     return () => {
       mqttDisconnect();
     };
-  }, [""]);
+  }, [emptyString]);
 
   const [queryClient] = useState(
     () =>
