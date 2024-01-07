@@ -9,12 +9,35 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental';
 import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import superjson from 'superjson';
 
 import { api, getBaseUrl } from './utils/trpc/client';
+import { useMqttStore } from '@acme/mqtt';
 
 export function TRPCReactProvider(props: { children: React.ReactNode }) {
+  const { mqttConnect, mqttPublish, mqttDisconnect, payload } = useMqttStore();
+  useEffect(() => {
+    if (payload.topic === 'test-topic/ping') {
+      mqttPublish({ topic: 'test-topic/pong', qos: 2, payload: { value: 'pong' } });
+    }
+  });
+
+  useEffect(() => {
+    mqttConnect('ws://localhost:8083/mqtt', {
+      username: 'admin',
+      password: 'dongchunnan10',
+      clientId: 'ws_mqttx_admin',
+      clean: true,
+      rejectUnauthorized: false,
+      // reconnectPeriod: 1000, // ms
+      // connectTimeout: 30 * 1000, // ms
+    });
+    return () => {
+      mqttDisconnect();
+    };
+  }, ['']);
+
   const [queryClient] = useState(
     () =>
       new QueryClient({
