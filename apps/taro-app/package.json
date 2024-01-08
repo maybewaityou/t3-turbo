@@ -1,8 +1,8 @@
 {
   "name": "@acme/taro-app",
   "version": "1.0.0",
-  "private": true,
   "description": "",
+  "private": true,
   "templateInfo": {
     "name": "default",
     "typescript": true,
