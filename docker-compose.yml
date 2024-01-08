@@ -2,14 +2,11 @@ version: '3'
 
 services:
   mqtt:
-    image: emqx:5.4.0
     container_name: emqx
+    build:
+      context: .
+      dockerfile: ./deploy/emqx/Dockerfile
     restart: always
-    healthcheck:
-      test: ['CMD', '/opt/emqx/bin/emqx ctl', 'status']
-      interval: 5s
-      timeout: 25s
-      retries: 5
     env_file:
       - .env
     ports:
