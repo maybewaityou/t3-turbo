@@ -154,4 +154,7 @@ export default defineConfig({
   requestRecord: {},
   tailwindcss: {},
   extraBabelPlugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
+  jsMinifierOptions: {
+    target: ['esnext']
+  }
 });
