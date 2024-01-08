@@ -34,11 +34,11 @@ COPY turbo.json turbo.json
 ## This would be useful for browser environment variables that are actually baked at build time and you aren't passing them in otherwise.
 COPY --from=pruned-repo /app/.env .env
 RUN <<EOF
-  cd packages/db && pnpm run db:generate
+  cd vendors/db && pnpm run db:generate
   CI=true SKIP_ENV_VALIDATION=true turbo run build --filter=@acme/nextjs... --filter=@acme/fastify-server... --filter=@acme/db...
 EOF
 
-WORKDIR /app/packages/db
+WORKDIR /app/vendors/db
 RUN pnpm run db:push
 
 FROM base AS runner

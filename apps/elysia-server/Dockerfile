@@ -34,11 +34,11 @@ COPY turbo.json turbo.json
 ## This would be useful for browser environment variables that are actually baked at build time and you aren't passing them in otherwise.
 COPY --from=pruned-repo /app/.env .env
 RUN <<EOF
-  cd packages/db && pnpm run db:generate
+  cd vendors/db && pnpm run db:generate
   CI=true SKIP_ENV_VALIDATION=true turbo run build --filter=@acme/elysia-server... --filter=@acme/db...
 EOF
 
-WORKDIR /app/packages/db
+WORKDIR /app/vendors/db
 RUN pnpm run db:push
 
 FROM oven/bun:1 as runner
@@ -62,6 +62,7 @@ COPY --from=builder --chown=elysia:nodejs /app/apps/elysia-server/tsconfig.json 
 
 COPY --from=builder --chown=elysia:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=elysia:nodejs /app/packages ./packages
+COPY --from=builder --chown=elysia:nodejs /app/vendors ./vendors
 COPY --from=builder --chown=elysia:nodejs /app/package.json ./package.json
 
 USER elysia
