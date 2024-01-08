@@ -46,14 +46,14 @@ services:
     ports:
       - 5173:80
       - 5443:443
-  # admin:
-  #   container_name: admin-platform
-  #   build:
-  #     context: .
-  #     dockerfile: ./apps/admin-platform/Dockerfile
-  #   restart: always
-  #   env_file:
-  #     - .env
-  #   ports:
-  #     - 8000:80
-  #     - 8443:443
+  admin:
+    container_name: admin-platform
+    build:
+      context: .
+      dockerfile: ./apps/admin-platform/Dockerfile
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 8000:80
+      - 8443:443
