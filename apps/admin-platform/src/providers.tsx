@@ -32,7 +32,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    mqttConnect('ws://localhost:8083/mqtt', {
+    mqttConnect('ws://emqx.climb2fame.com:8083/mqtt', {
       username: 'admin',
       password: 'dongchunnan10',
       clientId: 'ws_mqttx_admin',
