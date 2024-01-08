@@ -155,6 +155,6 @@ export default defineConfig({
   tailwindcss: {},
   extraBabelPlugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
   jsMinifierOptions: {
-    target: ['esnext']
-  }
+    target: ['esnext'],
+  },
 });
