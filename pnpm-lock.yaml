@@ -954,9 +954,6 @@ importers:
       '@acme/jwt':
         specifier: workspace:^0.1.0
         version: link:../../vendors/jwt
-      '@acme/rx':
-        specifier: workspace:^0.1.0
-        version: link:../../vendors/rx
       '@t3-oss/env-nextjs':
         specifier: ^0.7.1
         version: 0.7.1(typescript@5.3.3)(zod@3.22.4)
@@ -1334,27 +1331,6 @@ importers:
       zustand:
         specifier: ^4.3.9
         version: 4.4.7(@types/react@18.2.47)(immer@10.0.3)(react@18.2.0)
-    devDependencies:
-      '@acme/eslint-config':
-        specifier: workspace:^0.2.0
-        version: link:../../tooling/eslint
-      '@acme/prettier-config':
-        specifier: workspace:^0.1.0
-        version: link:../../tooling/prettier
-      '@acme/tsconfig':
-        specifier: workspace:^0.1.0
-        version: link:../../tooling/typescript
-      eslint:
-        specifier: ^8.56.0
-        version: 8.56.0
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-      vitest:
-        specifier: ^1.0.4
-        version: 1.1.3(@types/node@18.19.5)
-
-  vendors/rx:
     devDependencies:
       '@acme/eslint-config':
         specifier: workspace:^0.2.0
@@ -8539,7 +8515,7 @@ packages:
       '@types/history': 4.7.11
       '@types/react': 18.2.47
       '@types/react-router': 5.1.20
-      redux: 4.2.1
+      redux: 3.7.2
     dev: true
 
   /@types/react-router@5.1.20:
@@ -8705,7 +8681,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==, tarball: https://registry.npmmirror.com/@types/yauzl/-/yauzl-2.10.3.tgz}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.19.5
+      '@types/node': 20.10.7
     dev: true
     optional: true
 
@@ -13233,7 +13209,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
     dev: true
-    bundledDependencies: false
 
   /create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==, tarball: https://registry.npmmirror.com/create-require/-/create-require-1.1.1.tgz}
