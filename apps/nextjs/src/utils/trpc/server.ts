@@ -16,7 +16,7 @@ import {
   loggerLink,
   TRPCClientError,
 } from "@trpc/client";
-import { callProcedure } from "@trpc/server";
+import { callProcedure } from "@trpc/core";
 import { observable } from "@trpc/server/observable";
 import superjson from "superjson";
 
