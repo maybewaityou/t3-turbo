@@ -29,6 +29,11 @@ export const env = createEnv({
    */
   client: {
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    // MQTT
+    NEXT_PUBLIC_WS_MQTT_URL: z.string(),
+    NEXT_PUBLIC_WS_MQTT_USERNAME: z.string(),
+    NEXT_PUBLIC_WS_MQTT_PASSWORD: z.string(),
+    NEXT_PUBLIC_WS_MQTT_CLIENT_ID: z.string(),
   },
   /**
    * Destructure all variables from `process.env` to make sure they aren't tree-shaken away.
@@ -43,6 +48,11 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     REDIS_KEY_PREFIX: process.env.REDIS_KEY_PREFIX,
     REDIS_URL: process.env.REDIS_URL,
+    // MQTT
+    NEXT_PUBLIC_WS_MQTT_URL: process.env.NEXT_PUBLIC_WS_MQTT_URL,
+    NEXT_PUBLIC_WS_MQTT_USERNAME: process.env.NEXT_PUBLIC_WS_MQTT_USERNAME,
+    NEXT_PUBLIC_WS_MQTT_PASSWORD: process.env.NEXT_PUBLIC_WS_MQTT_PASSWORD,
+    NEXT_PUBLIC_WS_MQTT_CLIENT_ID: process.env.NEXT_PUBLIC_WS_MQTT_CLIENT_ID,
   },
   skipValidation:
     !!process.env.CI ||

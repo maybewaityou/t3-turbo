@@ -14,7 +14,7 @@ import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
 import { useEffect, useState } from 'react';
 import superjson from 'superjson';
 
-import { api, getBaseUrl } from './utils/trpc/client';
+import { api, getBaseUrl } from '@/utils/trpc/client';
 
 export function TRPCReactProvider(props: { children: React.ReactNode }) {
   const { mqttConnect, mqttPublish, mqttDisconnect, payload } = useMqttStore();
@@ -30,12 +30,11 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
       });
     }
   });
-
   useEffect(() => {
-    mqttConnect('ws://emqx.climb2fame.com:8083/mqtt', {
-      username: 'admin',
-      password: 'dongchunnan10',
-      clientId: 'ws_mqttx_admin',
+    mqttConnect(WS_MQTT_URL, {
+      username: WS_MQTT_USERNAME_ADMIN,
+      password: WS_MQTT_PASSWORD_ADMIN,
+      clientId: WS_MQTT_CLIENT_ID_ADMIN,
       clean: true,
       rejectUnauthorized: false,
       // reconnectPeriod: 1000, // ms

@@ -17,6 +17,7 @@ import superjson from "superjson";
 import { emptyString } from "@acme/extensions";
 import { useMqttStore } from "@acme/mqtt";
 
+import { env } from "~/env";
 import { api, getBaseUrl } from "~/utils/trpc/client";
 
 export function TRPCReactProvider(props: {
@@ -38,10 +39,10 @@ export function TRPCReactProvider(props: {
   });
 
   useEffect(() => {
-    mqttConnect("ws://emqx.climb2fame.com:8083/mqtt", {
-      username: "admin",
-      password: "dongchunnan10",
-      clientId: "ws_mqttx_nextjs",
+    mqttConnect(env.NEXT_PUBLIC_WS_MQTT_URL, {
+      username: env.NEXT_PUBLIC_WS_MQTT_USERNAME,
+      password: env.NEXT_PUBLIC_WS_MQTT_PASSWORD,
+      clientId: env.NEXT_PUBLIC_WS_MQTT_CLIENT_ID,
       clean: true,
       rejectUnauthorized: false,
       // reconnectPeriod: 1000, // ms

@@ -18,3 +18,7 @@ declare module 'react-fittext';
 declare module 'bizcharts-plugin-slider';
 
 declare const REACT_APP_ENV: 'test' | 'dev' | 'pre' | false;
+declare const WS_MQTT_URL: string;
+declare const WS_MQTT_USERNAME_ADMIN: string;
+declare const WS_MQTT_PASSWORD_ADMIN: string;
+declare const WS_MQTT_CLIENT_ID_ADMIN: string;

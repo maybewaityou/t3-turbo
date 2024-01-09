@@ -16,6 +16,8 @@ import superjson from 'superjson'
 
 import { api, getBaseUrl } from './utils/trpc/client'
 
+const env = import.meta.env
+
 export function TRPCReactProvider(props: { children: React.ReactNode; headers?: Headers }) {
   const { mqttConnect, mqttPublish, mqttDisconnect, payload } = useMqttStore()
   useEffect(() => {
@@ -25,14 +27,10 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers?: 
   })
 
   useEffect(() => {
-    mqttConnect('ws://emqx.climb2fame.com:8083/mqtt', {
-      // protocol: 'ws',
-      // hostname: 'localhost',
-      // port: 8083,
-      // path: '/mqtt',
-      username: 'admin',
-      password: 'dongchunnan10',
-      clientId: 'ws_mqttx_h5',
+    mqttConnect(env.VITE_WS_MQTT_URL, {
+      username: env.VITE_WS_MQTT_USERNAME_H5,
+      password: env.VITE_WS_MQTT_PASSWORD_H5,
+      clientId: env.VITE_WS_MQTT_CLIENT_ID_H5,
       clean: true,
       rejectUnauthorized: false,
       // reconnectPeriod: 1000, // ms
